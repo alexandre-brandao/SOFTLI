@@ -2,7 +2,8 @@
 ## ADC and TDC-based front-ends for LiDAR
 Devising two sampling architectures for LiDAR systems for precise ToF measurement systems.
 
-<Insert relative ToF measurement figure here>
+<img src="https://www.analog.com/-/media/analog/en/technologies/3d-time-of-flight-solution/tof-example2.svg?la=en&vs=1" style="width:10px">
+<img src="https://rh6stzxdcl1wf9gj1fkj14uc-wpengine.netdna-ssl.com/wp-content/uploads/2019/12/WHTH_LIDAR_Pt2_Fig1.jpg" style="width:10px">
 
 ### ADC - front-end implementation
 #### Requirements:

@@ -1,6 +1,8 @@
 # Master Thesis
 ## ADC and TDC-based front-ends for LiDAR
-Thesis Code Preparation
+Devising two sampling architectures for LiDAR systems for precise ToF measurement systems.
+
+<Insert relative ToF measurement figure here>
 
 ### ADC - front-end implementation
 #### Requirements:

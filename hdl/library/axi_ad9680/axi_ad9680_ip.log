@@ -1,0 +1,1190 @@
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source axi_ad9680_ip.tcl
+# source ../scripts/adi_env.tcl
+## set ad_hdl_dir [file normalize [file join [file dirname [info script]] "../.."]]
+## set ad_phdl_dir $ad_hdl_dir
+## if [info exists ::env(ADI_HDL_DIR)] {
+##   set ad_hdl_dir [file normalize $::env(ADI_HDL_DIR)]
+## }
+## if [info exists ::env(ADI_PHDL_DIR)] {
+##   set ad_phdl_dir [file normalize $::env(ADI_PHDL_DIR)]
+## }
+# source $ad_hdl_dir/library/scripts/adi_ip.tcl
+## if {![info exists REQUIRED_VIVADO_VERSION]} {
+##   set REQUIRED_VIVADO_VERSION "2018.2"
+## }
+## if {[info exists ::env(ADI_IGNORE_VERSION_CHECK)]} {
+##   set IGNORE_VERSION_CHECK 1
+## } elseif {![info exists IGNORE_VERSION_CHECK]} {
+##   set IGNORE_VERSION_CHECK 0
+## }
+## proc adi_ip_ttcl {ip_name ip_constr_files} {
+## 
+##   set proj_filegroup [ipx::get_file_groups -of_objects [ipx::current_core] -filter {NAME =~ *synthesis*}]
+##   set f [ipx::add_file $ip_constr_files $proj_filegroup]
+##   set_property -dict [list \
+##     type ttcl \
+##   ] $f
+##   ipx::reorder_files -front $ip_constr_files $proj_filegroup
+## }
+## proc adi_ip_sim_ttcl {ip_name ip_files} {
+## 
+##   set proj_filegroup [ipx::get_file_groups -of_objects [ipx::current_core] -filter {NAME =~ *simulation*}]
+##   set f [ipx::add_file $ip_files $proj_filegroup]
+##   set_property -dict [list \
+##     type ttcl \
+##   ] $f
+##   ipx::reorder_files -front $ip_files $proj_filegroup
+## }
+## proc adi_ip_bd {ip_name ip_bd_files} {
+##   set proj_filegroup [ipx::get_file_groups xilinx_blockdiagram -of_objects [ipx::current_core]]
+##   if {$proj_filegroup == {}} {
+##     set proj_filegroup [ipx::add_file_group -type xilinx_blockdiagram "" [ipx::current_core]]
+##   }
+##   set f [ipx::add_file $ip_bd_files $proj_filegroup]
+##   set_property -dict [list \
+##     type tclSource \
+##   ] $f
+## }
+## proc adi_ip_infer_streaming_interfaces {ip_name} {
+## 
+##   ipx::infer_bus_interfaces xilinx.com:interface:axis_rtl:1.0 [ipx::current_core]
+## 
+## }
+## proc adi_ip_infer_mm_interfaces {ip_name} {
+## 
+##   ipx::infer_bus_interfaces xilinx.com:interface:aximm_rtl:1.0 [ipx::current_core]
+## 
+## }
+## proc adi_set_ports_dependency {port_prefix dependency {driver_value {}}} {
+##   foreach port [ipx::get_ports [format "%s%s" $port_prefix "*"]] {
+##     set_property ENABLEMENT_DEPENDENCY $dependency $port
+##     if {$driver_value != {}} {
+##       set_property DRIVER_VALUE $driver_value $port
+##     }
+##   }
+## }
+## proc adi_set_bus_dependency {bus prefix dependency} {
+##   set_property ENABLEMENT_DEPENDENCY $dependency [ipx::get_bus_interfaces $bus -of_objects [ipx::current_core]]
+##   adi_set_ports_dependency $prefix $dependency 0
+## }
+## proc adi_add_port_map {bus phys logic} {
+##   set map [ipx::add_port_map $phys $bus]
+##   set_property "PHYSICAL_NAME" $phys $map
+##   set_property "LOGICAL_NAME" $logic $map
+## }
+## proc adi_add_bus {bus_name mode abs_type bus_type port_maps} {
+##   set bus [ipx::add_bus_interface $bus_name [ipx::current_core]]
+## 
+##   set_property "ABSTRACTION_TYPE_VLNV" $abs_type $bus
+##   set_property "BUS_TYPE_VLNV" $bus_type $bus
+##   set_property "INTERFACE_MODE" $mode $bus
+## 
+##   foreach port_map $port_maps {
+##     adi_add_port_map $bus {*}$port_map
+##   }
+## }
+## proc adi_add_multi_bus {num bus_name_prefix mode abs_type bus_type port_maps dependency} {
+##   for {set i 0} {$i < 8} {incr i} {
+##     set bus_name [format "%s%d" $bus_name_prefix $i]
+##     set bus [ipx::add_bus_interface $bus_name [ipx::current_core]]
+## 
+##     set_property "ABSTRACTION_TYPE_VLNV" $abs_type $bus
+##     set_property "BUS_TYPE_VLNV" $bus_type $bus
+##     set_property "INTERFACE_MODE" $mode $bus
+## 
+##     if {$dependency ne ""} {
+##       set bus_dependency [string map [list "{i}" $i] $dependency]
+##       set_property ENABLEMENT_DEPENDENCY $bus_dependency $bus
+##     }
+## 
+##     foreach port_map $port_maps {
+##       lassign $port_map phys logic width
+##       set map [ipx::add_port_map $phys $bus]
+##       set_property "PHYSICAL_NAME" $phys $map
+##       set_property "LOGICAL_NAME" $logic $map
+##       set_property "PHYSICAL_RIGHT" [expr $i*$width] $map
+##       set_property "PHYSICAL_LEFT" [expr ($i+1)*$width-1] $map
+##     }
+##   }
+## }
+## proc adi_add_bus_clock {clock_signal_name bus_inf_name {reset_signal_name ""} {reset_signal_mode "slave"}} {
+##   set bus_inf_name_clean [string map {":" "_"} $bus_inf_name]
+##   set clock_inf_name [format "%s%s" $bus_inf_name_clean "_signal_clock"]
+##   set clock_inf [ipx::add_bus_interface $clock_inf_name [ipx::current_core]]
+##   set_property abstraction_type_vlnv "xilinx.com:signal:clock_rtl:1.0" $clock_inf
+##   set_property bus_type_vlnv "xilinx.com:signal:clock:1.0" $clock_inf
+##   set_property display_name $clock_inf_name $clock_inf
+##   set clock_map [ipx::add_port_map "CLK" $clock_inf]
+##   set_property physical_name $clock_signal_name $clock_map
+## 
+##   set assoc_busif [ipx::add_bus_parameter "ASSOCIATED_BUSIF" $clock_inf]
+##   set_property value $bus_inf_name $assoc_busif
+## 
+##   if { $reset_signal_name != "" } {
+##     set assoc_reset [ipx::add_bus_parameter "ASSOCIATED_RESET" $clock_inf]
+##     set_property value $reset_signal_name $assoc_reset
+## 
+##     set reset_inf_name [format "%s%s" $bus_inf_name_clean "_signal_reset"]
+##     set reset_inf [ipx::add_bus_interface $reset_inf_name [ipx::current_core]]
+##     set_property abstraction_type_vlnv "xilinx.com:signal:reset_rtl:1.0" $reset_inf
+##     set_property bus_type_vlnv "xilinx.com:signal:reset:1.0" $reset_inf
+##     set_property display_name $reset_inf_name $reset_inf
+##     set_property interface_mode $reset_signal_mode $reset_inf
+##     set reset_map [ipx::add_port_map "RST" $reset_inf]
+##     set_property physical_name $reset_signal_name $reset_map
+## 
+##     set reset_polarity [ipx::add_bus_parameter "POLARITY" $reset_inf]
+##     if {[string match {*[Nn]} $reset_signal_name] == 1} {
+##       set_property value "ACTIVE_LOW" $reset_polarity
+##     } else {
+##       set_property value "ACTIVE_HIGH" $reset_polarity
+##     }
+##   }
+## }
+## proc adi_ip_add_core_dependencies {vlnvs} {
+##   foreach file_group [ipx::get_file_groups * -of_objects [ipx::current_core]] {
+##     foreach vlnv $vlnvs {
+##       ipx::add_subcore $vlnv $file_group
+##     }
+##   }
+## }
+## variable ip_constr_files
+## proc adi_ip_create {ip_name} {
+## 
+##   global ad_hdl_dir
+##   global ad_phdl_dir
+##   global ip_constr_files
+##   global REQUIRED_VIVADO_VERSION
+##   global IGNORE_VERSION_CHECK
+## 
+##   set VIVADO_VERSION [version -short]
+##   if {[string compare $VIVADO_VERSION $REQUIRED_VIVADO_VERSION] != 0} {
+##     puts -nonewline "CRITICAL WARNING: vivado version mismatch; "
+##     puts -nonewline "expected $REQUIRED_VIVADO_VERSION, "
+##     puts -nonewline "got $VIVADO_VERSION.\n"
+##   }
+## 
+##   create_project $ip_name . -force
+## 
+##   ## Load custom message severity definitions
+##   source $ad_hdl_dir/projects/scripts/adi_xilinx_msg.tcl
+## 
+##   set ip_constr_files ""
+##   set lib_dirs $ad_hdl_dir/library
+##   if {$ad_hdl_dir ne $ad_phdl_dir} {
+##     lappend lib_dirs $ad_phdl_dir/library
+##   }
+## 
+##   set_property ip_repo_paths $lib_dirs [current_fileset]
+##   update_ip_catalog
+## }
+## proc adi_ip_files {ip_name ip_files} {
+## 
+##   global ip_constr_files
+## 
+##   set ip_constr_files ""
+##   foreach m_file $ip_files {
+##     if {[file extension $m_file] eq ".xdc"} {
+##       lappend ip_constr_files $m_file
+##     }
+##   }
+## 
+##   set proj_fileset [get_filesets sources_1]
+##   add_files -norecurse -scan_for_includes -fileset $proj_fileset $ip_files
+##   set_property "top" "$ip_name" $proj_fileset
+## }
+## proc adi_ip_properties_lite {ip_name} {
+## 
+##   global ip_constr_files
+## 
+##   ipx::package_project -root_dir . -vendor analog.com -library user -taxonomy /Analog_Devices
+##   set_property name $ip_name [ipx::current_core]
+##   set_property vendor_display_name {Analog Devices} [ipx::current_core]
+##   set_property company_url {http://www.analog.com} [ipx::current_core]
+## 
+##   set i_families ""
+##   foreach i_part [get_parts] {
+##     lappend i_families [get_property FAMILY $i_part]
+##   }
+##   set i_families [lsort -unique $i_families]
+##   set s_families [get_property supported_families [ipx::current_core]]
+##   foreach i_family $i_families {
+##     set s_families "$s_families $i_family Production"
+##     set s_families "$s_families $i_family Beta"
+##   }
+##   set_property supported_families $s_families [ipx::current_core]
+##   ipx::save_core
+## 
+##   ipx::remove_all_bus_interface [ipx::current_core]
+##   set memory_maps [ipx::get_memory_maps * -of_objects [ipx::current_core]]
+##   foreach map $memory_maps {
+##     ipx::remove_memory_map [lindex $map 2] [ipx::current_core ]
+##   }
+##   ipx::save_core
+## 
+##   set i_filegroup [ipx::get_file_groups -of_objects [ipx::current_core] -filter {NAME =~ *synthesis*}]
+##   foreach i_file $ip_constr_files {
+##     set i_module [file tail $i_file]
+##     regsub {_constr\.xdc} $i_module {} i_module
+##     ipx::add_file $i_file $i_filegroup
+##     ipx::reorder_files -front $i_file $i_filegroup
+##     set_property SCOPED_TO_REF $i_module [ipx::get_files $i_file -of_objects $i_filegroup]
+##   }
+##   ipx::save_core
+## }
+## proc adi_ip_properties {ip_name} {
+## 
+##   adi_ip_properties_lite $ip_name
+## 
+##   ipx::infer_bus_interface {\
+##     s_axi_awvalid \
+##     s_axi_awaddr \
+##     s_axi_awprot \
+##     s_axi_awready \
+##     s_axi_wvalid \
+##     s_axi_wdata \
+##     s_axi_wstrb \
+##     s_axi_wready \
+##     s_axi_bvalid \
+##     s_axi_bresp \
+##     s_axi_bready \
+##     s_axi_arvalid \
+##     s_axi_araddr \
+##     s_axi_arprot \
+##     s_axi_arready \
+##     s_axi_rvalid \
+##     s_axi_rdata \
+##     s_axi_rresp \
+##     s_axi_rready} \
+##   xilinx.com:interface:aximm_rtl:1.0 [ipx::current_core]
+## 
+##   ipx::infer_bus_interface s_axi_aclk xilinx.com:signal:clock_rtl:1.0 [ipx::current_core]
+##   ipx::infer_bus_interface s_axi_aresetn xilinx.com:signal:reset_rtl:1.0 [ipx::current_core]
+## 
+##   set raddr_width [expr [get_property SIZE_LEFT [ipx::get_ports -nocase true s_axi_araddr -of_objects [ipx::current_core]]] + 1]
+##   set waddr_width [expr [get_property SIZE_LEFT [ipx::get_ports -nocase true s_axi_awaddr -of_objects [ipx::current_core]]] + 1]
+## 
+##   if {$raddr_width != $waddr_width} {
+##     puts [format "WARNING: AXI address width mismatch for %s (r=%d, w=%d)" $ip_name $raddr_width, $waddr_width]
+##     set range 65536
+##   } else {
+##     if {$raddr_width >= 16} {
+##       set range 65536
+##     } else {
+##       set range [expr 1 << $raddr_width]
+##     }
+##   }
+## 
+##   ipx::add_memory_map {s_axi} [ipx::current_core]
+##   set_property slave_memory_map_ref {s_axi} [ipx::get_bus_interfaces s_axi -of_objects [ipx::current_core]]
+##   ipx::add_address_block {axi_lite} [ipx::get_memory_maps s_axi -of_objects [ipx::current_core]]
+##   set_property range $range [ipx::get_address_blocks axi_lite \
+##     -of_objects [ipx::get_memory_maps s_axi -of_objects [ipx::current_core]]]
+##   ipx::associate_bus_interfaces -clock s_axi_aclk -reset s_axi_aresetn [ipx::current_core]
+##   ipx::save_core
+## }
+## proc adi_if_define {name} {
+## 
+##   ipx::create_abstraction_definition analog.com interface ${name}_rtl 1.0
+##   ipx::create_bus_definition analog.com interface $name 1.0
+## 
+##   set_property xml_file_name ${name}_rtl.xml [ipx::current_busabs]
+##   set_property xml_file_name ${name}.xml [ipx::current_busdef]
+##   set_property bus_type_vlnv analog.com:interface:${name}:1.0 [ipx::current_busabs]
+## 
+##   ipx::save_abstraction_definition [ipx::current_busabs]
+##   ipx::save_bus_definition [ipx::current_busdef]
+## }
+## proc adi_if_ports {dir width name {type none}} {
+## 
+##   ipx::add_bus_abstraction_port $name [ipx::current_busabs]
+##   set m_intf [ipx::get_bus_abstraction_ports $name -of_objects [ipx::current_busabs]]
+##   set_property master_presence required $m_intf
+##   set_property slave_presence  required $m_intf
+##   set_property master_width $width $m_intf
+##   set_property slave_width  $width $m_intf
+## 
+##   set m_dir "in"
+##   set s_dir "out"
+##   if {$dir eq "output"} {
+##     set m_dir "out"
+##     set s_dir "in"
+##   }
+## 
+##   set_property master_direction $m_dir $m_intf
+##   set_property slave_direction  $s_dir $m_intf
+## 
+##   if {$type ne "none"} {
+##     set_property is_${type} true $m_intf
+##   }
+## 
+##   ipx::save_bus_definition [ipx::current_busdef]
+##   ipx::save_abstraction_definition [ipx::current_busabs]
+## }
+## proc adi_if_infer_bus {if_name mode name maps} {
+## 
+##   ipx::add_bus_interface $name [ipx::current_core]
+##   set m_bus_if [ipx::get_bus_interfaces $name -of_objects [ipx::current_core]]
+##   set_property abstraction_type_vlnv ${if_name}_rtl:1.0 $m_bus_if
+##   set_property bus_type_vlnv ${if_name}:1.0 $m_bus_if
+##   set_property interface_mode $mode $m_bus_if
+## 
+##   foreach map $maps  {
+##     set m_maps [regexp -all -inline {\S+} $map]
+##     lassign $m_maps p_name p_map
+##     ipx::add_port_map $p_name $m_bus_if
+##     set_property physical_name $p_map [ipx::get_port_maps $p_name -of_objects $m_bus_if]
+##   }
+## }
+# adi_ip_create axi_ad9680
+CRITICAL WARNING: vivado version mismatch; expected 2018.2, got 2018.3.
+## set_msg_config -id {Vivado 12-1790} -string "Evaluation features should NOT be used in production systems." -new_severity WARNING
+## set_msg_config -id {BD 41-1343} -new_severity WARNING
+## set_msg_config -id {BD 41-1306} -new_severity WARNING
+## set_msg_config -severity {CRITICAL WARNING} -quiet -id {BD 41-1276} -new_severity ERROR
+## set_msg_config -id {IP_Flow 19-3656} -new_severity INFO
+## set_msg_config -id {IP_Flow 19-4623} -new_severity INFO
+## set_msg_config -id {IP_Flow 19-459} -new_severity INFO
+## set_msg_config -id {Place 30-73} -string "axi_spi" -new_severity WARNING
+## set_msg_config -string "PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY" -new_severity WARNING
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/adi/hdl/library'.
+INFO: [IP_Flow 19-3656] If you move the project, the path for repository 'c:/adi/hdl/library' may become invalid. A better location for the repository would be in a path adjacent to the project. (Current project location is 'c:/adi/hdl/library/axi_ad9680'.)
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+# adi_ip_files axi_ad9680 [list \
+#   "axi_ad9680.v" ]
+# adi_ip_properties axi_ad9680
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_rd_rtl for interface type slave.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0' of definition 'analog.com:interface:fifo_rd:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_rd_rtl for interface type slave.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1' of definition 'analog.com:interface:fifo_rd:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_rd_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'rx' of definition 'analog.com:interface:fifo_rd:1.0' (from User Repositories).
+INFO: [IP_Flow 19-5151] The Range '63:0' is present in all ports of the interface 'adc_0'. It is assumed that this is meant to declare an array of interface. If this is not the desired behaviour, switch of this feature by disabling the parameter 'ips.enableInterfaceArrayInference'.
+INFO: [IP_Flow 19-5151] The Range '63:0' is present in all ports of the interface 'adc_1'. It is assumed that this is meant to declare an array of interface. If this is not the desired behaviour, switch of this feature by disabling the parameter 'ips.enableInterfaceArrayInference'.
+INFO: [IP_Flow 19-5151] The Range '127:0' is present in all ports of the interface 'rx'. It is assumed that this is meant to declare an array of interface. If this is not the desired behaviour, switch of this feature by disabling the parameter 'ips.enableInterfaceArrayInference'.
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_0' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_1' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_10' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_11' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_12' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_13' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_14' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_15' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_16' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_17' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_18' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_19' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_2' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_20' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_21' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_22' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_23' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_24' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_25' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_26' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_27' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_28' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_29' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_3' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_30' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_31' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_32' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_33' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_34' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_35' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_36' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_37' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_38' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_39' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_4' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_40' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_41' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_42' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_43' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_44' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_45' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_46' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_47' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_48' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_49' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_5' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_50' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_51' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_52' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_53' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_54' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_55' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_56' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_57' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_58' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_59' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_6' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_60' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_61' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_62' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_63' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_7' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_8' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_0_9' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_0' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_1' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_10' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_11' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_12' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_13' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_14' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_15' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_16' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_17' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_18' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_19' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_2' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_20' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_21' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_22' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_23' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_24' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_25' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_26' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_27' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_28' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_29' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_3' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_30' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_31' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_32' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_33' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_34' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_35' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_36' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_37' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5462] Defaulting to slave bus interface due to conflicts in bus interface inference.
+INFO: [Common 17-14] Message 'IP_Flow 19-5462' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'adc_1_38' of definition 'analog.com:interface:fifo_wr:1.0' (from User Repositories).
+INFO: [Common 17-14] Message 'IP_Flow 19-5107' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+WARNING: [IP_Flow 19-5463] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type master.
+INFO: [Common 17-14] Message 'IP_Flow 19-5463' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+WARNING: [IP_Flow 19-5464] No port map found for required logical port EN on bus interface abstraction fifo_wr_rtl for interface type slave.
+INFO: [Common 17-14] Message 'IP_Flow 19-5464' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 's_axi'.
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aclk': Added interface parameter 'ASSOCIATED_RESET' with value 's_axi_aresetn'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_rd_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_rd_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'rx_data' and definition port 'DATA'.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'rx_valid' and definition port 'VALID'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_rd_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_0': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_1': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_10': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_11': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_12': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_13': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_14': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_15': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_16': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_17': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_18': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_19': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_2': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_20': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_21': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_22': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_23': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_24': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_25': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_26': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_27': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_28': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_29': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_3': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_30': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_31': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_32': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_33': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_34': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_35': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_36': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_37': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_38': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_39': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_4': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_40': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_41': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_42': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_43': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_44': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_45': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_46': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_47': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_48': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_49': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_5': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_50': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_51': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_52': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_53': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_54': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_55': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_56': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_57': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_58': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_59': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_6': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_60': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_61': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_62': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_63': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_7': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_8': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_0' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_0_9': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_0': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_1': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_10': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_11': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_12': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_13': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_14': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_15': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_16': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_17': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_18': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_19': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_2': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_20': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_21': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_22': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_23': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_24': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_25': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_26': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_27': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_28': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_29': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_3': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_30': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_31': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_32': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_33': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_34': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_35': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_36': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_37': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_38': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_39': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_4': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_40': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_41': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_42': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_43': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_44': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_45': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_46': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_47': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_48': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_49': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_5': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_50': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_51': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_52': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_53': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_54': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_55': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_56': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_57': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_58': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_59': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_6': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_60': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_61': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_62': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_63': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_7': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_8': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3480] slave: Portmap direction mismatched between component port 'adc_data_1' and definition port 'DATA'.
+WARNING: [IP_Flow 19-1965] Bus Interface 'adc_1_9': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_0': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_1': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_10': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_100': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_101': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_102': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_103': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_104': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_105': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_106': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_107': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_108': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_109': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_11': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_110': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_111': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_112': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_113': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_114': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_115': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_116': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_117': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_118': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_119': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_12': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_120': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_121': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_122': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_123': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_124': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_125': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_126': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_127': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_13': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_14': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_15': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_16': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_17': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_18': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_19': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_2': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_20': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_21': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_22': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_23': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_24': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_25': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_26': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_27': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_28': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_29': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_3': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_30': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_31': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_32': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_33': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_34': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_35': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_36': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_37': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_38': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_39': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_4': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_40': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_41': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_42': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_43': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_44': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_45': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_46': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_47': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_48': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_49': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_5': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_50': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_51': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_52': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_53': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_54': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_55': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_56': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_57': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_58': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_59': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_6': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_60': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_61': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_62': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_63': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_64': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_65': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_66': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_67': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_68': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_69': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_7': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_70': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_71': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_72': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_73': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_74': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_75': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_76': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_77': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_78': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_79': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_8': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_80': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_81': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_82': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_83': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_84': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_85': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_86': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_87': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_88': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_89': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_9': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_90': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_91': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_92': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_93': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_94': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_95': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_96': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_97': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_98': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-1965] Bus Interface 'rx_99': A port map to the required logical port "EN" of the bus abstraction "analog.com:interface:fifo_wr_rtl:1.0" is missing.
+WARNING: [IP_Flow 19-3153] Bus Interface 'adc_clk': ASSOCIATED_BUSIF bus parameter is missing.
+WARNING: [IP_Flow 19-4751] Bus Interface 'adc_clk': FREQ_HZ bus parameter is missing for output clock interface.
+WARNING: [IP_Flow 19-3153] Bus Interface 'rx_clk': ASSOCIATED_BUSIF bus parameter is missing.
+INFO: [IP_Flow 19-2181] Payment Required is not set for this core.
+INFO: [IP_Flow 19-2187] The Product Guide file is missing.
+INFO: [IP_Flow 19-4623] Unrecognized family  azynquplus.  Please verify spelling and reissue command to set the supported files.
+INFO: [IP_Flow 19-4623] Unrecognized family  azynquplus.  Please verify spelling and reissue command to set the supported files.
+INFO: [IP_Flow 19-4623] Unrecognized family  qkintexu.  Please verify spelling and reissue command to set the supported files.
+INFO: [IP_Flow 19-4623] Unrecognized family  qkintexu.  Please verify spelling and reissue command to set the supported files.
+INFO: [IP_Flow 19-4623] Unrecognized family  qvirtexuplus.  Please verify spelling and reissue command to set the supported files.
+INFO: [IP_Flow 19-4623] Unrecognized family  qvirtexuplus.  Please verify spelling and reissue command to set the supported files.
+INFO: [IP_Flow 19-4623] Unrecognized family  qzynquplus.  Please verify spelling and reissue command to set the supported files.
+INFO: [IP_Flow 19-4623] Unrecognized family  qzynquplus.  Please verify spelling and reissue command to set the supported files.
+INFO: [IP_Flow 19-4623] Unrecognized family  qzynquplusRFSOC.  Please verify spelling and reissue command to set the supported files.
+INFO: [IP_Flow 19-4623] Unrecognized family  qzynquplusRFSOC.  Please verify spelling and reissue command to set the supported files.
+INFO: [IP_Flow 19-4623] Unrecognized family  zynquplusRFSOC.  Please verify spelling and reissue command to set the supported files.
+INFO: [IP_Flow 19-4623] Unrecognized family  zynquplusRFSOC.  Please verify spelling and reissue command to set the supported files.
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 's_axi'.
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 's_axi_aclk': Added interface parameter 'ASSOCIATED_RESET' with value 's_axi_aresetn'.
+# adi_ip_add_core_dependencies { \
+#   analog.com:user:ad_ip_jesd204_tpl_adc:1.0 \
+# }
+# set_property driver_value 0 [ipx::get_ports *rx_valid* -of_objects [ipx::current_core]]
+# set_property driver_value 0 [ipx::get_ports *dovf* -of_objects [ipx::current_core]]
+# ipx::infer_bus_interface rx_clk xilinx.com:signal:clock_rtl:1.0 [ipx::current_core]
+# ipx::infer_bus_interface adc_clk xilinx.com:signal:clock_rtl:1.0 [ipx::current_core]
+# ipx::save_core [ipx::current_core]
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 13 23:53:55 2021...

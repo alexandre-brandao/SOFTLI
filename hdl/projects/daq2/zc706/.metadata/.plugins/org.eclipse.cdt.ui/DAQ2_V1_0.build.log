@@ -1,0 +1,8 @@
+19:22:01 **** Auto Build of configuration Debug for project DAQ2_V1_0 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+
+19:22:01 Build Finished (took 196ms)
+

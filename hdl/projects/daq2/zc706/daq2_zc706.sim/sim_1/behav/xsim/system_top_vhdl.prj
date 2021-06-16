@@ -1,0 +1,24 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../daq2_zc706.ip_user_files/bd/system/ip/system_axi_iic_main_0/sim/system_axi_iic_main_0.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ip/system_sys_rstgen_0/sim/system_sys_rstgen_0.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ipshared/common/axi_ctrlif.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ipshared/1f7b/tx_package.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ipshared/common/dma_fifo.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ipshared/common/axi_streaming_dma_tx_fifo.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ipshared/common/pl330_dma_fifo.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ipshared/1f7b/tx_encoder.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ipshared/1f7b/axi_spdif_tx.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ip/system_axi_spdif_tx_core_0/sim/system_axi_spdif_tx_core_0.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ip/system_axi_rstgen_0/sim/system_axi_rstgen_0.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ip/system_axi_ad9144_jesd_rstgen_0/sim/system_axi_ad9144_jesd_rstgen_0.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ip/system_axi_ad9680_jesd_rstgen_0/sim/system_axi_ad9680_jesd_rstgen_0.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/sim/system.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ipshared/c093/Mem_Buffer.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ip/system_Mem_Buffer_0_1/sim/system_Mem_Buffer_0_1.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ipshared/be26/hdl/Singleshot_v1_0_S00_AXI.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ipshared/be26/hdl/Singleshot_v1_0.vhd" \
+"../../../../daq2_zc706.ip_user_files/bd/system/ip/system_Singleshot_0_0/sim/system_Singleshot_0_0.vhd" \
+
+# Do not sort compile order
+nosort

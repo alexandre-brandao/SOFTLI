@@ -1,0 +1,214 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port rx_data_0_p -pg 1 -y 740 -defaultsOSRD
+preplace port spi0_sdi_i -pg 1 -y 70 -defaultsOSRD
+preplace port rx_data_1_n -pg 1 -y 760 -defaultsOSRD
+preplace port spi1_csn_1_o -pg 1 -y 1890 -defaultsOSRD
+preplace port spi0_csn_2_o -pg 1 -y 1550 -defaultsOSRD
+preplace port fixed_io -pg 1 -y 1510 -defaultsOSRD
+preplace port rx_data_2_n -pg 1 -y 930 -defaultsOSRD
+preplace port rx_data_1_p -pg 1 -y 910 -defaultsOSRD
+preplace port tx_data_2_n -pg 1 -y 1450 -defaultsOSRD
+preplace port spi1_sdi_i -pg 1 -y 270 -defaultsOSRD
+preplace port spi1_csn_i -pg 1 -y 250 -defaultsOSRD
+preplace port tx_sysref_0 -pg 1 -y 1070 -defaultsOSRD
+preplace port spi0_clk_o -pg 1 -y 1570 -defaultsOSRD
+preplace port spi0_csn_i -pg 1 -y 50 -defaultsOSRD
+preplace port rx_data_2_p -pg 1 -y 950 -defaultsOSRD
+preplace port tx_data_2_p -pg 1 -y 740 -defaultsOSRD
+preplace port tx_data_0_n -pg 1 -y 660 -defaultsOSRD
+preplace port spi1_sdo_i -pg 1 -y 680 -defaultsOSRD
+preplace port tx_data_3_n -pg 1 -y 700 -defaultsOSRD
+preplace port tx_ref_clk_0 -pg 1 -y 1090 -defaultsOSRD
+preplace port spi1_clk_i -pg 1 -y 230 -defaultsOSRD
+preplace port spi0_sdo_i -pg 1 -y 90 -defaultsOSRD
+preplace port rx_data_3_n -pg 1 -y 970 -defaultsOSRD
+preplace port tx_data_0_p -pg 1 -y 640 -defaultsOSRD
+preplace port ddr -pg 1 -y 1410 -defaultsOSRD
+preplace port tx_data_3_p -pg 1 -y 720 -defaultsOSRD
+preplace port spi0_csn_1_o -pg 1 -y 1810 -defaultsOSRD
+preplace port rx_data_3_p -pg 1 -y 990 -defaultsOSRD
+preplace port tx_data_1_n -pg 1 -y 1430 -defaultsOSRD
+preplace port rx_ref_clk_0 -pg 1 -y 1010 -defaultsOSRD
+preplace port spi1_csn_0_o -pg 1 -y 1750 -defaultsOSRD
+preplace port spi0_csn_0_o -pg 1 -y 1790 -defaultsOSRD
+preplace port rx_sysref_0 -pg 1 -y 720 -defaultsOSRD
+preplace port rx_data_0_n -pg 1 -y 700 -defaultsOSRD
+preplace port tx_data_1_p -pg 1 -y 680 -defaultsOSRD
+preplace port spi1_sdo_o -pg 1 -y 1730 -defaultsOSRD
+preplace port spi0_clk_i -pg 1 -y 1760 -defaultsOSRD
+preplace port spi1_clk_o -pg 1 -y 1770 -defaultsOSRD
+preplace port spi1_csn_2_o -pg 1 -y 1910 -defaultsOSRD
+preplace port spi0_sdo_o -pg 1 -y 1470 -defaultsOSRD
+preplace portBus rx_sync_0 -pg 1 -y 760 -defaultsOSRD
+preplace portBus tx_sync_0 -pg 1 -y 1050 -defaultsOSRD
+preplace portBus gpio_o -pg 1 -y 1530 -defaultsOSRD
+preplace portBus gpio_t -pg 1 -y 1490 -defaultsOSRD
+preplace portBus gpio_i -pg 1 -y 1030 -defaultsOSRD
+preplace inst axi_ad9680_jesd -pg 1 -lvl 4 -y 1390 -defaultsOSRD
+preplace inst DFlipFlop_0 -pg 1 -lvl 1 -y 1830 -defaultsOSRD
+preplace inst Mem_Buffer_0 -pg 1 -lvl 2 -y 570 -defaultsOSRD
+preplace inst State_Machine -pg 1 -lvl 2 -y 2140 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 4 -y 860 -defaultsOSRD
+preplace inst axi_ad9144_jesd_rstgen -pg 1 -lvl 6 -y 1000 -defaultsOSRD
+preplace inst util_daq2_xcvr -pg 1 -lvl 3 -y 1520 -defaultsOSRD
+preplace inst GND -pg 1 -lvl 1 -y 2140 -defaultsOSRD
+preplace inst axi_hp3_interconnect -pg 1 -lvl 5 -y 1860 -defaultsOSRD
+preplace inst axi_ad9680_cpack -pg 1 -lvl 2 -y 1900 -defaultsOSRD
+preplace inst axi_ad9680_xcvr -pg 1 -lvl 2 -y 1590 -defaultsOSRD
+preplace inst GND_1 -pg 1 -lvl 5 -y 830 -defaultsOSRD
+preplace inst sys_concat_intc -pg 1 -lvl 6 -y 450 -defaultsOSRD
+preplace inst axi_ad9680_jesd_rstgen -pg 1 -lvl 6 -y 820 -defaultsOSRD
+preplace inst axi_ad9144_xcvr -pg 1 -lvl 2 -y 1100 -defaultsOSRD
+preplace inst axi_ad9144_dma -pg 1 -lvl 3 -y 500 -defaultsOSRD
+preplace inst axi_ad9144_jesd -pg 1 -lvl 2 -y 1330 -defaultsOSRD
+preplace inst sys_rstgen -pg 1 -lvl 6 -y 1240 -defaultsOSRD
+preplace inst axi_ad9680_core -pg 1 -lvl 1 -y 1200 -defaultsOSRD
+preplace inst axi_ad9144_fifo -pg 1 -lvl 4 -y 1120 -defaultsOSRD
+preplace inst UserMemoryAccess_BRAM -pg 1 -lvl 1 -y 530 -defaultsOSRD
+preplace inst Singleshot_0 -pg 1 -lvl 1 -y 360 -defaultsOSRD
+preplace inst axi_ad9144_upack -pg 1 -lvl 2 -y 220 -defaultsOSRD
+preplace inst axi_ad9144_core -pg 1 -lvl 3 -y 230 -defaultsOSRD
+preplace inst axi_cpu_interconnect -pg 1 -lvl 5 -y 1170 -defaultsOSRD
+preplace inst sys_ps7 -pg 1 -lvl 6 -y 1680 -defaultsOSRD
+preplace inst BRAM_CONTROLLER -pg 1 -lvl 1 -y 840 -defaultsOSRD
+preplace inst axi_hp1_interconnect -pg 1 -lvl 5 -y 1620 -defaultsOSRD
+preplace inst Counter_XBits -pg 1 -lvl 2 -y 2300 -defaultsOSRD
+preplace netloc axi_ad9144_jesd_tx_phy2 1 2 1 1330
+preplace netloc axi_ad9680_xcvr_up_ch_0 1 2 1 1370
+preplace netloc axi_ad9680_xcvr_up_ch_1 1 2 1 1440
+preplace netloc S00_AXI_3 1 2 3 1260 2060 2110J 1800 NJ
+preplace netloc axi_ad9144_jesd_tx_phy3 1 2 1 1390
+preplace netloc sys_ps7_SPI1_MOSI_O 1 6 1 3730J
+preplace netloc axi_ad9680_xcvr_up_ch_2 1 2 1 1480
+preplace netloc S00_AXI_4 1 3 2 NJ 430 2500
+preplace netloc sys_ps7_GPIO_O 1 6 1 3700J
+preplace netloc axi_ad9680_xcvr_up_es_0 1 2 1 1350
+preplace netloc axi_ad9680_xcvr_up_ch_3 1 2 1 1500
+preplace netloc axi_ad9680_cpack_adc_data 1 0 3 100 260 710 350 1220
+preplace netloc rx_data_3_n_1 1 0 3 NJ 970 NJ 970 1280
+preplace netloc axi_ad9680_xcvr_up_es_1 1 2 1 1410
+preplace netloc Singleshot_0_single_shot 1 0 2 20 250 720
+preplace netloc axi_ad9144_jesd_irq 1 2 4 1320 370 2040J 420 NJ 420 2940J
+preplace netloc axi_ad9680_xcvr_up_es_2 1 2 1 1470
+preplace netloc axi_ad9680_jesd_sync 1 4 3 2490 690 NJ 690 3720J
+preplace netloc axi_ad9680_xcvr_up_es_3 1 2 1 1490
+preplace netloc axi_hp3_interconnect_M00_AXI 1 5 1 3030
+preplace netloc GND_1_dout 1 5 1 2970
+preplace netloc axi_ad9680_jesd_irq 1 4 2 2470 640 2940J
+preplace netloc axi_ad9680_jesd_rx_sof 1 0 5 100 740 N 740 N 740 NJ 740 2440J
+preplace netloc sys_ps7_GPIO_T 1 6 1 3730J
+preplace netloc axi_ad9144_core_dac_enable_0 1 1 3 890 50 N 50 1920
+preplace netloc tx_ref_clk_0_1 1 0 3 10J 960 700J 940 1430
+preplace netloc Counter_Xbits_0_wraparound 1 1 2 900 2040 1220
+preplace netloc rx_data_0_p_1 1 0 3 -10J 750 NJ 750 1450
+preplace netloc axi_ad9144_core_dac_enable_1 1 1 3 850J -100 NJ -100 1980
+preplace netloc axi_ad9144_upack_dac_valid 1 2 2 1240J 100 2030
+preplace netloc axi_ad9144_xcvr_up_ch_0 1 2 1 1260
+preplace netloc Mem_Buffer_0_mem_out_0 1 2 1 1250
+preplace netloc axi_ad9144_fifo_dac_data 1 1 4 860 -40 N -40 NJ -40 2460
+preplace netloc axi_ad9144_core_dac_valid_0 1 1 3 900 70 1240 40 1930
+preplace netloc sys_ps7_FCLK_RESET0_N 1 5 2 3070 1340 3570
+preplace netloc axi_ad9144_xcvr_up_ch_1 1 2 1 1270
+preplace netloc Mem_Buffer_0_mem_out_1 1 2 1 1280
+preplace netloc axi_ad9144_core_dac_valid_1 1 1 3 880 -30 N -30 1950
+preplace netloc rx_data_1_n_1 1 0 3 NJ 760 NJ 760 1250
+preplace netloc util_daq2_xcvr_tx_2_n 1 3 4 1920 1740 NJ 1740 2850J 2020 3720J
+preplace netloc axi_cpu_interconnect_M04_AXI 1 1 5 800J -70 NJ -70 NJ -70 NJ -70 2920
+preplace netloc axi_ad9144_xcvr_up_ch_2 1 2 1 1210
+preplace netloc axi_ad9144_xcvr_up_ch_3 1 2 1 1260
+preplace netloc axi_ad9680_core_adc_valid_0 1 1 1 740
+preplace netloc spi0_sdi_i_1 1 0 7 NJ 70 720J 80 NJ 80 NJ 80 NJ 80 NJ 80 3620
+preplace netloc sys_ps7_SPI1_SS2_O 1 6 1 3690J
+preplace netloc util_daq2_xcvr_tx_2_p 1 3 4 2010 730 NJ 730 3050J 720 3710J
+preplace netloc axi_cpu_interconnect_M01_AXI 1 2 4 1550J -60 NJ -60 NJ -60 2850
+preplace netloc axi_ad9680_core_adc_valid_1 1 1 1 710
+preplace netloc axi_ad9680_jesd_rx_data_tdata 1 0 5 110 940 690 910 1480 950 NJ 950 2430J
+preplace netloc axi_ad9144_dma_m_axis_xfer_req 1 3 1 1980
+preplace netloc sync_1 1 0 2 NJ 1050 780J
+preplace netloc tx_data_tdata_1 1 1 3 840J 30 NJ 30 1940
+preplace netloc sys_ps7_SPI0_SS1_O 1 6 1 3670J
+preplace netloc rx_ref_clk_0_1 1 0 3 NJ 1010 770J 980 1290
+preplace netloc axi_ad9144_xcvr_up_pll_rst 1 2 1 1310
+preplace netloc sys_ps7_DDR 1 6 1 3670J
+preplace netloc util_daq2_xcvr_rx_0 1 3 1 N
+preplace netloc spi1_clk_i_1 1 0 7 -10J 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 3650
+preplace netloc spi0_csn_i_1 1 0 7 NJ 50 720J 60 NJ 60 NJ 60 NJ 60 NJ 60 3630
+preplace netloc util_daq2_xcvr_tx_0_n 1 3 4 1930 630 NJ 630 3050J 660 NJ
+preplace netloc util_daq2_xcvr_rx_1 1 3 1 N
+preplace netloc VCC_dout 1 1 1 N
+preplace netloc axi_ad9144_dma_m_axis_data 1 3 1 2020
+preplace netloc rx_data_2_p_1 1 0 3 NJ 950 NJ 950 1340
+preplace netloc util_daq2_xcvr_rx_2 1 3 1 N
+preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 0 2 110 280 690
+preplace netloc StateMachine_0_Reset_out 1 1 2 900 2380 1210
+preplace netloc util_daq2_xcvr_tx_0_p 1 3 4 1950 700 NJ 700 NJ 700 3670J
+preplace netloc sys_ps7_SPI0_MOSI_O 1 6 1 3680J
+preplace netloc util_daq2_xcvr_rx_3 1 3 1 N
+preplace netloc util_daq2_xcvr_rx_out_clk_0 1 0 6 50 1760 790 1760 1540 2070 2050 750 NJ 750 2980
+preplace netloc sys_ps7_SPI1_SS_O 1 6 1 3740J
+preplace netloc axi_ad9144_fifo_dma_ready 1 3 2 NJ 470 2420
+preplace netloc axi_cpu_interconnect_M08_AXI 1 0 6 40 0 N 0 NJ 0 N 0 NJ 0 2900
+preplace netloc axi_cpu_interconnect_M03_AXI 1 2 4 1540J -50 NJ -50 NJ -50 2870
+preplace netloc gpio_i_1 1 0 7 0J 670 NJ 670 NJ 670 NJ 670 NJ 670 3020 1100 3550
+preplace netloc axi_ad9144_fifo_dac_dunf 1 2 3 1560J 70 NJ 70 2450
+preplace netloc sys_ps7_SPI1_SCLK_O 1 6 1 3680J
+preplace netloc Counter_Xbits_0_Address 1 0 3 90 240 760 330 1240
+preplace netloc axi_ad9680_xcvr_up_pll_rst 1 2 1 1550
+preplace netloc axi_cpu_interconnect_M00_AXI 1 1 5 810J -110 NJ -110 NJ -110 NJ -110 2890
+preplace netloc axi_ad9144_dma_irq 1 3 3 NJ 550 NJ 550 2960
+preplace netloc axi_ad9680_jesd_rstgen_peripheral_reset 1 1 6 830 -20 N -20 N -20 NJ -20 NJ -20 3600
+preplace netloc axi_cpu_interconnect_M05_AXI 1 0 6 30 -90 N -90 N -90 NJ -90 NJ -90 2930
+preplace netloc rx_data_1_p_1 1 0 3 -10J 920 NJ 920 1400
+preplace netloc axi_hp1_interconnect_M00_AXI 1 5 1 2890
+preplace netloc DFlipFlop_0_outSignal 1 1 1 690
+preplace netloc sys_concat_intc_dout 1 5 2 3060 230 3530
+preplace netloc spi1_sdi_i_1 1 0 7 NJ 270 700J 340 1520J 360 2070J 410 NJ 410 2940J 240 3610
+preplace netloc sys_ps7_FIXED_IO 1 6 1 3690J
+preplace netloc axi_ad9680_core_adc_data_0 1 1 1 730
+preplace netloc rx_data_0_n_1 1 0 3 NJ 700 NJ 700 1460
+preplace netloc sysref_1 1 0 2 NJ 1070 770J
+preplace netloc axi_ad9680_core_adc_data_1 1 1 1 700
+preplace netloc sysref_2 1 0 4 10 730 NJ 730 NJ 730 1940J
+preplace netloc axi_cpu_interconnect_M02_AXI 1 1 5 820J -80 NJ -80 NJ -80 NJ -80 2880
+preplace netloc spi0_clk_i_1 1 0 7 -10J 1750 NJ 1750 1250J 2090 NJ 2090 NJ 2090 N 2090 3580
+preplace netloc axi_cpu_interconnect_M06_AXI 1 3 3 2080 400 NJ 400 2860
+preplace netloc axi_ad9680_jesd_phy_en_char_align 1 2 3 1560J 2080 NJ 2080 2410
+preplace netloc spi0_sdo_i_1 1 0 7 NJ 90 NJ 90 NJ 90 NJ 90 NJ 90 NJ 90 3590
+preplace netloc axi_ad9144_dma_m_axis_valid 1 3 1 2040
+preplace netloc axi_ad9144_xcvr_up_cm_0 1 2 1 N
+preplace netloc axi_ad9144_jesd_rstgen_peripheral_reset 1 3 4 2090 220 N 220 N 220 3540
+preplace netloc sys_cpu_reset 1 3 4 2110 720 NJ 720 2960J 1130 3530
+preplace netloc axi_cpu_interconnect_M07_AXI 1 0 6 80 -10 N -10 NJ -10 N -10 NJ -10 2910
+preplace netloc xlconstant_0_dout 1 3 2 2100 920 2410
+preplace netloc axi_ad9680_cpack_adc_valid 1 1 2 890 2030 1210
+preplace netloc spi1_csn_i_1 1 0 7 0J 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 3660
+preplace netloc sys_ps7_SPI0_SS2_O 1 6 1 3700J
+preplace netloc sys_cpu_clk 1 0 7 70 1000 790 890 1510 970 2060 960 2510 760 2940 2040 3530
+preplace netloc sys_cpu_resetn 1 0 7 80 980 760 900 1530 980 2070 970 2520 770 2950J 1120 3540
+preplace netloc util_daq2_xcvr_tx_3_n 1 3 4 2000 660 NJ 660 3030J 710 3710J
+preplace netloc sys_ps7_SPI0_SS_O 1 6 1 3690J
+preplace netloc axi_ad9144_dma_m_axis_last 1 3 1 1990
+preplace netloc util_daq2_xcvr_tx_1_n 1 3 4 2030 1520 2530J 1500 2870J 2030 3710J
+preplace netloc sys_ps7_SPI0_SCLK_O 1 6 1 3670J
+preplace netloc rx_data_3_p_1 1 0 3 NJ 990 710J 960 1300
+preplace netloc axi_ad9144_jesd_tx_phy0 1 2 1 1330
+preplace netloc StateMachine_0_Write_Enable 1 0 3 60 2300 700 2390 1230
+preplace netloc axi_ad9680_core_adc_enable_0 1 1 1 750
+preplace netloc spi1_sdo_i_1 1 0 7 NJ 680 NJ 680 NJ 680 NJ 680 NJ 680 3000 1110 3560
+preplace netloc S00_AXI_1 1 4 3 2530 210 N 210 3640
+preplace netloc axi_ad9144_jesd_tx_phy1 1 2 1 1420
+preplace netloc util_daq2_xcvr_tx_out_clk_0 1 1 5 870 110 1380 760 1920 760 2480J 740 2990
+preplace netloc axi_ad9680_core_adc_enable_1 1 1 1 720
+preplace netloc rx_data_2_n_1 1 0 3 NJ 930 NJ 930 1360
+preplace netloc util_daq2_xcvr_tx_3_p 1 3 4 1960 650 NJ 650 3040J 670 3730J
+preplace netloc sys_ps7_SPI1_SS1_O 1 6 1 3690J
+preplace netloc util_daq2_xcvr_tx_1_p 1 3 4 1970 710 NJ 710 3010J 680 NJ
+levelinfo -pg 1 -30 550 1070 1760 2270 2700 3300 3760 -top -150 -bot 2970
+"
+}
+{
+   "da_axi4_cnt":"5"
+}

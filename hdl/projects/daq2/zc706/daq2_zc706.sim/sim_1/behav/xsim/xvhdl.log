@@ -1,0 +1,25 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_iic_main_0/sim/system_axi_iic_main_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'system_axi_iic_main_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_sys_rstgen_0/sim/system_sys_rstgen_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'system_sys_rstgen_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/axi_ctrlif.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'axi_ctrlif'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/1f7b/tx_package.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/dma_fifo.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'dma_fifo'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/axi_streaming_dma_tx_fifo.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'axi_streaming_dma_tx_fifo'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/pl330_dma_fifo.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'pl330_dma_fifo'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/1f7b/tx_encoder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tx_encoder'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/1f7b/axi_spdif_tx.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'axi_spdif_tx'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_spdif_tx_core_0/sim/system_axi_spdif_tx_core_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'system_axi_spdif_tx_core_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_rstgen_0/sim/system_axi_rstgen_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'system_axi_rstgen_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ad9144_jesd_rstgen_0/sim/system_axi_ad9144_jesd_rstgen_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'system_axi_ad9144_jesd_rstgen_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ad9680_jesd_rstgen_0/sim/system_axi_ad9680_jesd_rstgen_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'system_axi_ad9680_jesd_rstgen_0'

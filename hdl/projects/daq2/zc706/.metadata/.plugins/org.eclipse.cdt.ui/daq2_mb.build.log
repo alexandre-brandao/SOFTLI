@@ -1,0 +1,102 @@
+16:17:42 **** Build of configuration Debug for project daq2_mb ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+Building file: ../src/ad9144.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/ad9144.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../daq2_mb_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/ad9144.d" -MT"src/ad9144.o" -o "src/ad9144.o" "../src/ad9144.c"
+../src/ad9144.c: In function 'ad9144_short_pattern_test':
+../src/ad9144.c:643:50: warning: format '%x' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+     printf("%s : short-pattern-test mismatch (0x%x, 0x%x 0x%x, 0x%x)!.\n",
+                                                 ~^
+                                                 %lx
+../src/ad9144.c:643:56: warning: format '%x' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+     printf("%s : short-pattern-test mismatch (0x%x, 0x%x 0x%x, 0x%x)!.\n",
+                                                       ~^
+                                                       %lx
+../src/ad9144.c:643:61: warning: format '%x' expects argument of type 'unsigned int', but argument 5 has type 'uint32_t {aka const long unsigned int}' [-Wformat=]
+     printf("%s : short-pattern-test mismatch (0x%x, 0x%x 0x%x, 0x%x)!.\n",
+                                                            ~^
+                                                            %lx
+../src/ad9144.c:645:12:
+            init_param->stpl_samples[dac][sample],
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~             
+Finished building: ../src/ad9144.c
+ 
+Building file: ../src/ad9523.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/ad9523.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../daq2_mb_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/ad9523.d" -MT"src/ad9523.o" -o "src/ad9523.o" "../src/ad9523.c"
+../src/ad9523.c: In function 'ad9523_calibrate':
+../src/ad9523.c:234:44: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+   printf("AD9523: VCO calibration failed (%x)!\n", reg_data);
+                                           ~^
+                                           %lx
+../src/ad9523.c: In function 'ad9523_status':
+../src/ad9523.c:286:40: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+   printf("AD9523: VCXO status errors (%x)!\n", reg_data);
+                                       ~^
+                                       %lx
+../src/ad9523.c:290:37: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+   printf("AD9523: PLL2 NOT locked (%x)!\n", reg_data);
+                                    ~^
+                                    %lx
+../src/ad9523.c: In function 'ad9523_setup':
+../src/ad9523.c:471:47: warning: format '%X' expects argument of type 'unsigned int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+   printf("AD9523: SPI write-verify failed (0x%X)!\n\r",
+                                              ~^
+                                              %lX
+Finished building: ../src/ad9523.c
+ 
+Building file: ../src/ad9680.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/ad9680.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../daq2_mb_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/ad9680.d" -MT"src/ad9680.o" -o "src/ad9680.o" "../src/ad9680.c"
+Finished building: ../src/ad9680.c
+ 
+Building file: ../src/adc_core.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/adc_core.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../daq2_mb_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/adc_core.d" -MT"src/adc_core.o" -o "src/adc_core.o" "../src/adc_core.c"
+Finished building: ../src/adc_core.c
+ 
+Building file: ../src/dac_buffer.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/dac_buffer.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../daq2_mb_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/dac_buffer.d" -MT"src/dac_buffer.o" -o "src/dac_buffer.o" "../src/dac_buffer.c"
+Finished building: ../src/dac_buffer.c
+ 
+Building file: ../src/dac_core.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/dac_core.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../daq2_mb_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/dac_core.d" -MT"src/dac_core.o" -o "src/dac_core.o" "../src/dac_core.c"
+Finished building: ../src/dac_core.c
+ 
+Building file: ../src/dmac_core.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/dmac_core.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../daq2_mb_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/dmac_core.d" -MT"src/dmac_core.o" -o "src/dmac_core.o" "../src/dmac_core.c"
+../src/dmac_core.c: In function 'dmac_start_transaction':
+../src/dmac_core.c:136:2: warning: implicit declaration of function 'Xil_DCacheInvalidateRange'; did you mean 'Xil_DCacheDisable'? [-Wimplicit-function-declaration]
+  Xil_DCacheInvalidateRange(dma.transfer->start_address, (2 * dma.transfer->no_of_samples));
+  ^~~~~~~~~~~~~~~~~~~~~~~~~
+  Xil_DCacheDisable
+Finished building: ../src/dmac_core.c
+ 
+Building file: ../src/fmcdaq2.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/fmcdaq2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../daq2_mb_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/fmcdaq2.d" -MT"src/fmcdaq2.o" -o "src/fmcdaq2.o" "../src/fmcdaq2.c"
+../src/fmcdaq2.c: In function 'fmcdaq2_reconfig':
+../src/fmcdaq2.c:126:10: warning: unused variable 'mode' [-Wunused-variable]
+  uint8_t mode = 0;
+          ^~~~
+../src/fmcdaq2.c: In function 'main':
+../src/fmcdaq2.c:206:28: error: 'XPAR_AXI_AD9680_DMA_BASEADDR' undeclared (first use in this function); did you mean 'XPAR_AXI_AD9144_DMA_BASEADDR'?
+  ad9680_dma.base_address = XPAR_AXI_AD9680_DMA_BASEADDR;
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            XPAR_AXI_AD9144_DMA_BASEADDR
+../src/fmcdaq2.c:206:28: note: each undeclared identifier is reported only once for each function it appears in
+../src/fmcdaq2.c:481:17: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+  int char_var = " ";
+                 ^~~
+../src/fmcdaq2.c:481:6: warning: unused variable 'char_var' [-Wunused-variable]
+  int char_var = " ";
+      ^~~~~~~~
+make: *** [src/subdir.mk:62: src/fmcdaq2.o] Error 1
+
+16:17:47 Build Finished (took 4s.238ms)
+

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun Jun 13 23:59:25 2021
+# Process ID: 14920
+# Current directory: C:/adi/hdl/library/xilinx/util_adxcvr
+# Command line: vivado.exe -mode batch -source util_adxcvr_ip.tcl
+# Log file: C:/adi/hdl/library/xilinx/util_adxcvr/vivado.log
+# Journal file: C:/adi/hdl/library/xilinx/util_adxcvr\vivado.jou
+#-----------------------------------------------------------
+source util_adxcvr_ip.tcl

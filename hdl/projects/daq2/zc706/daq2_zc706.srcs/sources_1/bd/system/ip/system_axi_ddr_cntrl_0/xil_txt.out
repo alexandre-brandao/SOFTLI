@@ -1,0 +1,4 @@
+SET_ERROR_CODE 0
+SET_XMDF_PATH ./system_axi_ddr_cntrl_0_xmdf.tcl
+SET_PARAMETER component_name system_axi_ddr_cntrl_0
+SET_PARAMETER xml_input_file  ./system_axi_ddr_cntrl_0/mig.prj

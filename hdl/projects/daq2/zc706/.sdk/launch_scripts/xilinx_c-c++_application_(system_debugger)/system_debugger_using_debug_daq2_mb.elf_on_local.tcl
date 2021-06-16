@@ -1,0 +1,18 @@
+connect -url tcp:127.0.0.1:3121
+source C:/adi/hdl/projects/daq2/zc706/daq2_zc706.sdk/system_top_hw_platform_mb/ps7_init.tcl
+targets -set -filter {jtag_cable_name =~ "Digilent JTAG-SMT2 210251A1E177" && level==0} -index 1
+fpga -file C:/adi/hdl/projects/daq2/zc706/daq2_zc706.sdk/system_top_hw_platform_mb/system_top.bit
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent JTAG-SMT2 210251A1E177"} -index 0
+loadhw -hw C:/adi/hdl/projects/daq2/zc706/daq2_zc706.sdk/system_top_hw_platform_mb/system.hdf -mem-ranges [list {0x40000000 0xbfffffff}]
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*" && jtag_cable_name =~ "Digilent JTAG-SMT2 210251A1E177"} -index 0
+stop
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-SMT2 210251A1E177"} -index 0
+rst -processor
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-SMT2 210251A1E177"} -index 0
+dow C:/adi/hdl/projects/daq2/zc706/daq2_zc706.sdk/daq2_mb/Debug/daq2_mb.elf
+configparams force-mem-access 0
+targets -set -nocase -filter {name =~ "ARM*#0" && jtag_cable_name =~ "Digilent JTAG-SMT2 210251A1E177"} -index 0
+con

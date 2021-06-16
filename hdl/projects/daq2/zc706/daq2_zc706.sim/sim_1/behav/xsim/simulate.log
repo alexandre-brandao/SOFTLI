@@ -1,0 +1,101 @@
+Vivado Simulator 2018.3
+Time resolution is 1 fs
+############# Write Clocks PLLE2_ADV Parameters #############
+
+nCK_PER_CLK      =       4
+CLK_PERIOD       =    5000
+CLKIN1_PERIOD    =   5.000
+DIVCLK_DIVIDE    =       1
+CLKFBOUT_MULT    =       8
+VCO_PERIOD       =   625.0
+CLKOUT0_DIVIDE_F =       2
+CLKOUT1_DIVIDE   =       2
+CLKOUT2_DIVIDE   =      32
+CLKOUT3_DIVIDE   =       8
+CLKOUT0_PERIOD   =    1250
+CLKOUT1_PERIOD   =    1250
+CLKOUT2_PERIOD   =   20000
+CLKOUT3_PERIOD   =    5000
+CLKOUT4_PERIOD   =    2500
+############################################################
+
+############# MMCME2_ADV Parameters #############
+
+MMCM_MULT_F           =           4
+MMCM_VCO_FREQ (MHz)   = 800.000
+MMCM_VCO_PERIOD       = 1250.000
+#################################################
+
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : BYTE_LANES_B0 = 7 BYTE_LANES_B1 = f DATA_CTL_B0 = 7 DATA_CTL_B1 = 1
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : HIGHEST_LANE =          12 HIGHEST_LANE_B0 =           4 HIGHEST_LANE_B1 =           4
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : HIGHEST_BANK =           3
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : FREQ_REF_PERIOD         = 1250.00 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : DDR_TCK                 = 1250 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_S2_TAPS_SIZE         = 9.77 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_CIRC_BUF_EARLY       = 0 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_CIRC_BUF_OFFSET      = 30.25 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_CIRC_BUF_META_ZONE   = 200.00 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_STG2_FINE_INTR_DLY   = 769.25 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_STG2_COARSE_INTR_DLY = 511.00 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_STG2_INTRINSIC_DELAY = 1280.25 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_CIRC_BUF_DELAY       = 60 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_INTRINSIC_DELAY      = 1280.25 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_DELAY                = 1866.19 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_OCLK_DELAY           = 15 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : L_PHY_0_PO_FINE_DELAY   = 60 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_STG1_INTRINSIC_DELAY = 0.00 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_STG2_INTRINSIC_DELAY = 744.00 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_INTRINSIC_DELAY      = 744.00 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_MAX_STG2_DELAY       = 615.23 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_OFFSET               = -78.00 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : a negative PI_OFFSET means that rclk path is longer than oclk path so rclk will be delayed to next oclk edge and the negedge of rclk may be used.
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_STG2_DELAY           = 547.00 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy :PI_STG2_DELAY_CAND       = 547.00 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : DEFAULT_RCLK_DELAY      = 56 
+system_top.i_system_wrapper.system_i.axi_ddr_cntrl.u_system_axi_ddr_cntrl_0_mig.u_memc_ui_top_axi.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : RCLK_SELECT_EDGE        = 0 
+XilinxAXIVIP: Found at Path: system_top.i_system_wrapper.system_i.sys_ps7.inst.M_AXI_GP0.master
+[0] : *ZYNQ_VIP_INFO : M_AXI_GP0 : Port is ENABLED.
+XilinxAXIVIP: Found at Path: system_top.i_system_wrapper.system_i.sys_ps7.inst.M_AXI_GP1.master
+[0] : *ZYNQ_VIP_INFO : M_AXI_GP1 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: system_top.i_system_wrapper.system_i.sys_ps7.inst.S_AXI_GP0.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_GP0 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: system_top.i_system_wrapper.system_i.sys_ps7.inst.S_AXI_GP1.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_GP1 : Port is DISABLED.
+XilinxAXIVIP: Found at Path: system_top.i_system_wrapper.system_i.sys_ps7.inst.S_AXI_HP0.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_HP0 : Port is ENABLED.
+                   0 BEFORE checking line ...... x
+                   0 AFTER checking line ...... x
+XilinxAXIVIP: Found at Path: system_top.i_system_wrapper.system_i.sys_ps7.inst.S_AXI_HP1.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_HP1 : Port is ENABLED.
+                   0 BEFORE checking line ...... x
+                   0 AFTER checking line ...... x
+XilinxAXIVIP: Found at Path: system_top.i_system_wrapper.system_i.sys_ps7.inst.S_AXI_HP2.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_HP2 : Port is ENABLED.
+                   0 BEFORE checking line ...... x
+                   0 AFTER checking line ...... x
+XilinxAXIVIP: Found at Path: system_top.i_system_wrapper.system_i.sys_ps7.inst.S_AXI_HP3.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_HP3 : Port is ENABLED.
+                   0 BEFORE checking line ...... x
+                   0 AFTER checking line ...... x
+XilinxAXIVIP: Found at Path: system_top.i_system_wrapper.system_i.sys_ps7.inst.S_AXI_ACP.slave
+[0] : *ZYNQ_VIP_INFO : S_AXI_ACP : Port is DISABLED.
+Note: axi_iic configured for SDA inertial delay of 0 clocks.
+Time: 0 fs  Iteration: 0  Process: /system_top/i_system_wrapper/system_i/axi_iic_main/U0/X_IIC/FILTER_I/line__5035  File: /wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/axi_iic_v2_0/hdl/axi_iic_v2_0_vh_rfs.vhd
+Note: axi_iic configured for SCL inertial delay of 0 clocks.
+Time: 0 fs  Iteration: 0  Process: /system_top/i_system_wrapper/system_i/axi_iic_main/U0/X_IIC/FILTER_I/line__5009  File: /wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/axi_iic_v2_0/hdl/axi_iic_v2_0_vh_rfs.vhd
+                   0 else checking line ......x
+WARNING: 5 ns system_top.i_system_wrapper.system_i.sys_ps7.inst.M_AXI_GP0.master.IF : ARESET_N can't be X/Z after 1 cycle of clock. To downgrade, use <hierarchy_path to VIP>.IF.set_enable_xchecks_to_warn(), or filter using clr_enable_xchecks.
+WARNING: 5 ns system_top.i_system_wrapper.system_i.sys_ps7.inst.S_AXI_HP0.slave.IF : ARESET_N can't be X/Z after 1 cycle of clock. To downgrade, use <hierarchy_path to VIP>.IF.set_enable_xchecks_to_warn(), or filter using clr_enable_xchecks.
+WARNING: 5 ns system_top.i_system_wrapper.system_i.sys_ps7.inst.S_AXI_HP1.slave.IF : ARESET_N can't be X/Z after 1 cycle of clock. To downgrade, use <hierarchy_path to VIP>.IF.set_enable_xchecks_to_warn(), or filter using clr_enable_xchecks.
+WARNING: 5 ns system_top.i_system_wrapper.system_i.sys_ps7.inst.S_AXI_HP2.slave.IF : ARESET_N can't be X/Z after 1 cycle of clock. To downgrade, use <hierarchy_path to VIP>.IF.set_enable_xchecks_to_warn(), or filter using clr_enable_xchecks.
+WARNING: 5 ns system_top.i_system_wrapper.system_i.sys_ps7.inst.S_AXI_HP3.slave.IF : ARESET_N can't be X/Z after 1 cycle of clock. To downgrade, use <hierarchy_path to VIP>.IF.set_enable_xchecks_to_warn(), or filter using clr_enable_xchecks.
+                   5 else checking line ......1
+Executing Axi4 End Of Simulation checks
+Executing Axi4 End Of Simulation checks
+Executing Axi4 End Of Simulation checks
+Executing Axi4 End Of Simulation checks
+Executing Axi4 End Of Simulation checks
+Executing Axi4 End Of Simulation checks
+Executing Axi4 End Of Simulation checks
+Executing Axi4 End Of Simulation checks
+Executing Axi4 End Of Simulation checks

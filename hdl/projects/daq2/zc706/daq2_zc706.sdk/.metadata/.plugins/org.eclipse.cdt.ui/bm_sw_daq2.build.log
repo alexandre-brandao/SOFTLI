@@ -1,0 +1,8 @@
+18:46:35 **** Incremental Build of configuration Debug for project bm_sw_daq2 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for 'main-build'.
+
+18:46:36 Build Finished (took 257ms)
+

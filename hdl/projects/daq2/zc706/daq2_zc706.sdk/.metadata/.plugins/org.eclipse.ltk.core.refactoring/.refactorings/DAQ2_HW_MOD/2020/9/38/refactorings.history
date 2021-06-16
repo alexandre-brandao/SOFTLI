@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DAQ2_HW_MOD/src/waveforms_1024&apos; to &apos;waveforms_1024.h&apos;" description="Rename resource &apos;waveforms_1024&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/waveforms_1024" name="waveforms_1024.h" stamp="1600186056707" updateReferences="true"/>
+</session>

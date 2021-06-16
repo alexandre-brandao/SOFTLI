@@ -1,0 +1,17 @@
+18:33:47 **** Incremental Build of configuration Debug for project daq2_mb_SW ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/ad9144.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/ad9144.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../daq2_mb_SW_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/ad9144.d" -MT"src/ad9144.o" -o "src/ad9144.o" "../src/ad9144.c"
+In file included from ../src/platform_drivers.h:78:0,
+                 from ../src/ad9144.c:46:
+../../daq2_mb_SW_bsp/ps7_cortexa9_0/include/xparameters.h:19:10: fatal error: xparameters_ps.h: No such file or directory
+ #include "xparameters_ps.h"
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [src/subdir.mk:62: src/ad9144.o] Error 1
+
+18:33:47 Build Finished (took 360ms)
+

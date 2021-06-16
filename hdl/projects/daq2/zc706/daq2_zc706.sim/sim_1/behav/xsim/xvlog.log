@@ -1,0 +1,243 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_sys_ps7_0/sim/system_sys_ps7_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_sys_ps7_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_sys_concat_intc_0/sim/system_sys_concat_intc_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_sys_concat_intc_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/xilinx/common/ad_mmcm_drp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ad_mmcm_drp
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_rst.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ad_rst
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/up_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module up_axi
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/up_clkgen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module up_clkgen
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/759f/axi_clkgen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_clkgen
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_hdmi_clkgen_0/sim/system_axi_hdmi_clkgen_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_axi_hdmi_clkgen_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_csc_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ad_csc_1
+WARNING: [VRFC 10-3380] identifier 'DW' is used before its declaration [C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_csc_1.v:46]
+WARNING: [VRFC 10-3380] identifier 'DW' is used before its declaration [C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_csc_1.v:58]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_csc_1_add.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ad_csc_1_add
+WARNING: [VRFC 10-3380] identifier 'DW' is used before its declaration [C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_csc_1_add.v:56]
+WARNING: [VRFC 10-3380] identifier 'DW' is used before its declaration [C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_csc_1_add.v:57]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_csc_1_mul.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ad_csc_1_mul
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_csc_RGB2CrYCb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ad_csc_RGB2CrYCb
+WARNING: [VRFC 10-3380] identifier 'DW' is used before its declaration [C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_csc_RGB2CrYCb.v:51]
+WARNING: [VRFC 10-3380] identifier 'DW' is used before its declaration [C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_csc_RGB2CrYCb.v:56]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ad_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/xilinx/common/ad_mul.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ad_mul
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_ss_444to422.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ad_ss_444to422
+WARNING: [VRFC 10-3380] identifier 'DW' is used before its declaration [C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_ss_444to422.v:48]
+WARNING: [VRFC 10-3380] identifier 'DW' is used before its declaration [C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/ad_ss_444to422.v:53]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/ef21/axi_hdmi_tx_core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_hdmi_tx_core
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/ef21/axi_hdmi_tx_es.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_hdmi_tx_es
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/ef21/axi_hdmi_tx_vdma.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_hdmi_tx_vdma
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/up_clock_mon.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module up_clock_mon
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/up_hdmi_tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module up_hdmi_tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/up_xfer_cntrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module up_xfer_cntrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/common/up_xfer_status.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module up_xfer_status
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/ef21/axi_hdmi_tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_hdmi_tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_hdmi_core_0/sim/system_axi_hdmi_core_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_axi_hdmi_core_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/9c92/sync_bits.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sync_bits
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/9c92/sync_data.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sync_data
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/9c92/sync_event.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sync_event
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/9c92/sync_gray.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sync_gray
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/364f/address_gray_pipelined.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_address_gray_pipelined
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/364f/address_sync.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_address_sync
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/364f/util_axis_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module util_axis_fifo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_hdmi_dma_0/sim/system_axi_hdmi_dma_0_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/2d_transfer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dmac_2d_transfer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/address_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dmac_address_generator
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/axi_dmac_burst_memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_dmac_burst_memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/axi_dmac_regmap.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_dmac_regmap
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/axi_dmac_regmap_request.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_dmac_regmap_request
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/axi_dmac_reset_manager.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_dmac_reset_manager
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/axi_dmac_resize_dest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_dmac_resize_dest
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/axi_dmac_resize_src.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_dmac_resize_src
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/axi_dmac_response_manager.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_dmac_response_manager
+INFO: [VRFC 10-2458] undeclared symbol response_dest_partial, assumed default net type wire [C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/axi_dmac_response_manager.v:134]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/axi_dmac_transfer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_dmac_transfer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/axi_register_slice.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_register_slice
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/data_mover.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dmac_data_mover
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/dest_axi_mm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dmac_dest_mm_axi
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/dest_axi_stream.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dmac_dest_axi_stream
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/dest_fifo_inf.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dmac_dest_fifo_inf
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/request_arb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dmac_request_arb
+INFO: [VRFC 10-2458] undeclared symbol src_req_spltr_valid, assumed default net type wire [C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/request_arb.v:1049]
+INFO: [VRFC 10-2458] undeclared symbol src_req_spltr_ready, assumed default net type wire [C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/request_arb.v:1050]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/request_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dmac_request_generator
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/response_generator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dmac_response_generator
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/response_handler.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dmac_response_handler
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/splitter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module splitter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/src_axi_mm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dmac_src_mm_axi
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/src_axi_stream.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dmac_src_axi_stream
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/src_fifo_inf.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dmac_src_fifo_inf
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ipshared/6453/axi_dmac.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_dmac
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_hdmi_dma_0/sim/system_axi_hdmi_dma_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_axi_hdmi_dma_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_sys_audio_clkgen_0/system_sys_audio_clkgen_0_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_sys_audio_clkgen_0_clk_wiz
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_sys_audio_clkgen_0/system_sys_audio_clkgen_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_sys_audio_clkgen_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_GND_1_0/sim/system_GND_1_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_GND_1_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_xbar_0/sim/system_xbar_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module system_xbar_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_addr_decode.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_ctrl_addr_decode
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_read.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_ctrl_read
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_ctrl_reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_reg_bank.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_ctrl_reg_bank
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_ctrl_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_ctrl_write.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_ctrl_write
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_mc
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_ar_channel.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_mc_ar_channel
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_aw_channel.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_mc_aw_channel
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_b_channel.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_mc_b_channel
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_arbiter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_mc_cmd_arbiter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_mc_cmd_fsm
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_cmd_translator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_mc_cmd_translator
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_mc_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_incr_cmd.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_mc_incr_cmd
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_r_channel.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_mc_r_channel
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_simple_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_mc_simple_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_wrap_cmd.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_mc_wrap_cmd
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_wr_cmd_fsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_mc_wr_cmd_fsm
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_axi_mc_w_channel.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_axi_mc_w_channel
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_ddr_axic_register_slice.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_axic_register_slice
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_ddr_axi_register_slice.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_axi_register_slice
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_ddr_axi_upsizer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_axi_upsizer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_ddr_a_upsizer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_a_upsizer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_and.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_carry_and
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_latch_and.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_carry_latch_and
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_latch_or.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_carry_latch_or
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_ddr_carry_or.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_carry_or
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_ddr_command_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_command_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_ddr_comparator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_comparator
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_ddr_comparator_sel.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_comparator_sel
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_ddr_comparator_sel_static.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_comparator_sel_static
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_ddr_r_upsizer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_r_upsizer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/axi/mig_7series_v4_2_ddr_w_upsizer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ddr_w_upsizer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/clocking/mig_7series_v4_2_clk_ibuf.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_clk_ibuf
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/clocking/mig_7series_v4_2_infrastructure.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_infrastructure
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/clocking/mig_7series_v4_2_iodelay_ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_iodelay_ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/clocking/mig_7series_v4_2_tempmon.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_tempmon
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_arb_mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_arb_mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_arb_row_col.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_arb_row_col
+WARNING: [VRFC 10-2654] begin/end is required for generate-for in this mode of verilog [C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_arb_row_col.v:252]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_arb_select.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_arb_select
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_bank_cntrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_bank_cntrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_bank_common.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_bank_common
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_bank_compare.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_bank_compare
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_bank_mach.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_bank_mach
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_bank_queue.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_bank_queue
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_bank_state.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_bank_state
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_col_mach.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_col_mach
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_mc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_mc
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_rank_cntrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_rank_cntrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_rank_common.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_rank_common
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_rank_mach.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_rank_mach
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/controller/mig_7series_v4_2_round_robin_arb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_round_robin_arb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/ecc/mig_7series_v4_2_ecc_buf.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ecc_buf
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/adi/hdl/projects/daq2/zc706/daq2_zc706.ip_user_files/bd/system/ip/system_axi_ddr_cntrl_0/system_axi_ddr_cntrl_0/user_design/rtl/ecc/mig_7series_v4_2_ecc_dec_fix.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mig_7series_v4_2_ecc_dec_fix

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun Jun 13 23:56:20 2021
+# Process ID: 4740
+# Current directory: C:/adi/hdl/library/jesd204/jesd204_common
+# Command line: vivado.exe -mode batch -source jesd204_common_ip.tcl
+# Log file: C:/adi/hdl/library/jesd204/jesd204_common/vivado.log
+# Journal file: C:/adi/hdl/library/jesd204/jesd204_common\vivado.jou
+#-----------------------------------------------------------
+source jesd204_common_ip.tcl

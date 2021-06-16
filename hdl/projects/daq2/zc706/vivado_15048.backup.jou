@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Wed May 26 14:15:17 2021
+# Process ID: 15048
+# Current directory: C:/Users/Xandr/OneDrive - Universidade de Aveiro/adi/hdl/projects/daq2/zc706
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1284 C:\Users\Xandr\OneDrive - Universidade de Aveiro\adi\hdl\projects\daq2\zc706\daq2_zc706.xpr
+# Log file: C:/Users/Xandr/OneDrive - Universidade de Aveiro/adi/hdl/projects/daq2/zc706/vivado.log
+# Journal file: C:/Users/Xandr/OneDrive - Universidade de Aveiro/adi/hdl/projects/daq2/zc706\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project -read_only {C:/Users/Xandr/OneDrive - Universidade de Aveiro/adi/hdl/projects/daq2/zc706/daq2_zc706.xpr}
+update_compile_order -fileset sources_1

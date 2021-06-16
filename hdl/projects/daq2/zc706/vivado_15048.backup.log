@@ -1,0 +1,87 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Wed May 26 14:15:17 2021
+# Process ID: 15048
+# Current directory: C:/Users/Xandr/OneDrive - Universidade de Aveiro/adi/hdl/projects/daq2/zc706
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1284 C:\Users\Xandr\OneDrive - Universidade de Aveiro\adi\hdl\projects\daq2\zc706\daq2_zc706.xpr
+# Log file: C:/Users/Xandr/OneDrive - Universidade de Aveiro/adi/hdl/projects/daq2/zc706/vivado.log
+# Journal file: C:/Users/Xandr/OneDrive - Universidade de Aveiro/adi/hdl/projects/daq2/zc706\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project -read_only {C:/Users/Xandr/OneDrive - Universidade de Aveiro/adi/hdl/projects/daq2/zc706/daq2_zc706.xpr}
+INFO: [Project 1-313] Project file moved from 'C:/adi/hdl/projects/daq2/zc706' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Xandr/OneDrive - Universidade de Aveiro/adi/hdl/projects/daq2/ip_repo/Measurements_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Xandr/OneDrive - Universidade de Aveiro/VivadoProjects/xfer_req_signal_projection/xfer_req_signal_projection.srcs/sources_1/new'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Xandr/OneDrive - Universidade de Aveiro/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Xandr/OneDrive - Universidade de Aveiro/adi/hdl/projects/daq2/ip_repo/UserMemoryAccess_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Xandr/OneDrive - Universidade de Aveiro/adi/hdl/projects/daq2/ip_repo/Singleshot_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Xandr/OneDrive - Universidade de Aveiro/adi/hdl/projects/daq2/ip_repo/USER_PIN_CONTROL_1.0'.
+CRITICAL WARNING: [IP_Flow 19-1977] Unable to read IP file c:/Users/Xandr/OneDrive - Universidade de Aveiro/MEMORY_Buffer/MEMORY_Buffer.srcs/sources_1/new/component.xml. This IP will not be included in the IP Catalog.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Xandr/OneDrive - Universidade de Aveiro/MEMORY_Buffer/MEMORY_Buffer.srcs/sources_1/new'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Xandr/OneDrive - Universidade de Aveiro/adi/hdl/library'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.1/data/ip'.
+WARNING: [BD 41-1663] The design 'system.bd' cannot be modified due to following reason(s):
+* Project is read-only. Please run 'save_project_as' before making any change to the bd-design. 
+
+WARNING: [BD 41-1661] One or more IPs have been locked in the design 'system.bd'. Please run report_ip_status for more details and recommendations on how to fix this issue.
+List of locked IPs:
+system_axi_cpu_interconnect_0
+system_sys_ps7_0
+system_sys_concat_intc_0
+system_tx_axi_0
+system_axi_hp3_interconnect_0
+system_sys_rstgen_0
+system_GND_1_0
+system_axi_ad9144_fifo_0
+system_xbar_0
+system_axi_ad9144_xcvr_0
+system_tx_0
+system_VCC_0
+system_axi_ad9144_core_0
+system_axi_ad9144_upack_0
+system_axi_ad9144_dma_0
+system_axi_ad9680_xcvr_0
+system_blk_mem_gen_0_0
+system_axi_ad9680_core_0
+system_rx_axi_0
+system_rx_0
+system_axi_ad9680_cpack_0
+system_auto_pc_8
+system_UserMemoryAccess_BRAM_0
+system_util_daq2_xcvr_0
+system_xlconcat_0_0
+system_axi_ad9144_jesd_rstgen_0
+system_axi_ad9680_jesd_rstgen_0
+system_axi_hp1_interconnect_0
+system_xlconstant_0_0
+system_Mem_Buffer_0_1
+system_Singleshot_0_0
+system_xlconstant_1_0
+system_axi_bram_ctrl_0_1
+system_clk_wiz_0_0
+system_xlconstant_1_1
+system_auto_ds_0
+system_BRAM_CONTROLLER_0
+system_xlconstant_1_2
+system_auto_pc_0
+system_auto_pc_1
+system_tdc_0_1
+system_auto_pc_2
+system_auto_pc_3
+system_auto_pc_4
+system_auto_pc_5
+system_auto_pc_6
+system_auto_pc_7
+system_auto_pc_9
+system_auto_us_0
+
+WARNING: [Project 1-229] Project 'daq2_zc706.xpr' is read-only and therefore could not be upgraded for this version of Vivado.  Use 'File | Save Project As...' if you wish to save an upgraded copy.
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1036.418 ; gain = 0.000
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed May 26 23:00:16 2021...

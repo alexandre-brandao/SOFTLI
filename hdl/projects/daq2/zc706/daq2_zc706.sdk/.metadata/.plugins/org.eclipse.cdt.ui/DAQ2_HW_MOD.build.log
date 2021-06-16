@@ -1,0 +1,152 @@
+16:32:57 **** Auto Build of configuration Debug for project DAQ2_HW_MOD ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/ad9144.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/ad9144.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/ad9144.d" -MT"src/ad9144.o" -o "src/ad9144.o" "../src/ad9144.c"
+../src/ad9144.c: In function 'ad9144_short_pattern_test':
+../src/ad9144.c:643:50: warning: format '%x' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+     printf("%s : short-pattern-test mismatch (0x%x, 0x%x 0x%x, 0x%x)!.\n",
+                                                 ~^
+                                                 %lx
+../src/ad9144.c:643:56: warning: format '%x' expects argument of type 'unsigned int', but argument 4 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+     printf("%s : short-pattern-test mismatch (0x%x, 0x%x 0x%x, 0x%x)!.\n",
+                                                       ~^
+                                                       %lx
+../src/ad9144.c:643:61: warning: format '%x' expects argument of type 'unsigned int', but argument 5 has type 'uint32_t {aka const long unsigned int}' [-Wformat=]
+     printf("%s : short-pattern-test mismatch (0x%x, 0x%x 0x%x, 0x%x)!.\n",
+                                                            ~^
+                                                            %lx
+../src/ad9144.c:645:12:
+            init_param->stpl_samples[dac][sample],
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~             
+'Finished building: ../src/ad9144.c'
+' '
+'Building file: ../src/ad9523.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/ad9523.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/ad9523.d" -MT"src/ad9523.o" -o "src/ad9523.o" "../src/ad9523.c"
+../src/ad9523.c: In function 'ad9523_calibrate':
+../src/ad9523.c:234:44: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+   printf("AD9523: VCO calibration failed (%x)!\n", reg_data);
+                                           ~^
+                                           %lx
+../src/ad9523.c: In function 'ad9523_status':
+../src/ad9523.c:286:40: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+   printf("AD9523: VCXO status errors (%x)!\n", reg_data);
+                                       ~^
+                                       %lx
+../src/ad9523.c:290:37: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+   printf("AD9523: PLL2 NOT locked (%x)!\n", reg_data);
+                                    ~^
+                                    %lx
+../src/ad9523.c: In function 'ad9523_setup':
+../src/ad9523.c:471:47: warning: format '%X' expects argument of type 'unsigned int', but argument 2 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+   printf("AD9523: SPI write-verify failed (0x%X)!\n\r",
+                                              ~^
+                                              %lX
+'Finished building: ../src/ad9523.c'
+' '
+'Building file: ../src/ad9680.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/ad9680.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/ad9680.d" -MT"src/ad9680.o" -o "src/ad9680.o" "../src/ad9680.c"
+'Finished building: ../src/ad9680.c'
+' '
+'Building file: ../src/adc_core.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/adc_core.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/adc_core.d" -MT"src/adc_core.o" -o "src/adc_core.o" "../src/adc_core.c"
+'Finished building: ../src/adc_core.c'
+' '
+'Building file: ../src/dac_buffer.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/dac_buffer.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/dac_buffer.d" -MT"src/dac_buffer.o" -o "src/dac_buffer.o" "../src/dac_buffer.c"
+'Finished building: ../src/dac_buffer.c'
+' '
+'Building file: ../src/dac_core.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/dac_core.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/dac_core.d" -MT"src/dac_core.o" -o "src/dac_core.o" "../src/dac_core.c"
+'Finished building: ../src/dac_core.c'
+' '
+'Building file: ../src/dmac_core.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/dmac_core.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/dmac_core.d" -MT"src/dmac_core.o" -o "src/dmac_core.o" "../src/dmac_core.c"
+../src/dmac_core.c: In function 'dmac_start_transaction':
+../src/dmac_core.c:135:2: warning: implicit declaration of function 'Xil_DCacheInvalidateRange'; did you mean 'Xil_DCacheDisable'? [-Wimplicit-function-declaration]
+  Xil_DCacheInvalidateRange(dma.transfer->start_address, (2 * dma.transfer->no_of_samples));
+  ^~~~~~~~~~~~~~~~~~~~~~~~~
+  Xil_DCacheDisable
+'Finished building: ../src/dmac_core.c'
+' '
+'Building file: ../src/fmcdaq2.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/fmcdaq2.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/fmcdaq2.d" -MT"src/fmcdaq2.o" -o "src/fmcdaq2.o" "../src/fmcdaq2.c"
+'Finished building: ../src/fmcdaq2.c'
+' '
+'Building file: ../src/jesd_core.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/jesd_core.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/jesd_core.d" -MT"src/jesd_core.o" -o "src/jesd_core.o" "../src/jesd_core.c"
+'Finished building: ../src/jesd_core.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building file: ../src/platform_drivers.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform_drivers.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform_drivers.d" -MT"src/platform_drivers.o" -o "src/platform_drivers.o" "../src/platform_drivers.c"
+'Finished building: ../src/platform_drivers.c'
+' '
+'Building file: ../src/xcvr_core.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xcvr_core.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xcvr_core.d" -MT"src/xcvr_core.o" -o "src/xcvr_core.o" "../src/xcvr_core.c"
+'Finished building: ../src/xcvr_core.c'
+' '
+'Building file: ../src/xilinx_qpll.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xilinx_qpll.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xilinx_qpll.d" -MT"src/xilinx_qpll.o" -o "src/xilinx_qpll.o" "../src/xilinx_qpll.c"
+../src/xilinx_qpll.c: In function 'xilinx_xcvr_calc_qpll_config':
+../src/xilinx_qpll.c:125:52: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+  printf("%s: Failed to find matching dividers for %u kHz rate\n",
+                                                   ~^
+                                                   %lu
+../src/xilinx_qpll.c: In function 'xilinx_xcvr_gtx2_qpll_write_config':
+../src/xilinx_qpll.c:279:36: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'uint32_t {aka const long unsigned int}' [-Wformat=]
+   printf("Invalid refclk divider: %u\n", conf->refclk_div);
+                                   ~^     ~~~~~~~~~~~~~~~~
+                                   %lu
+../src/xilinx_qpll.c:312:38: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'uint32_t {aka const long unsigned int}' [-Wformat=]
+   printf("Invalid feedback divider: %u\n", conf->fb_div);
+                                     ~^     ~~~~~~~~~~~~
+                                     %lu
+../src/xilinx_qpll.c: In function 'xilinx_xcvr_gth34_qpll_write_config':
+../src/xilinx_qpll.c:370:36: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'uint32_t {aka const long unsigned int}' [-Wformat=]
+   printf("Invalid refclk divider: %u\n", conf->refclk_div);
+                                   ~^     ~~~~~~~~~~~~~~~~
+                                   %lu
+'Finished building: ../src/xilinx_qpll.c'
+' '
+'Building file: ../src/xilinx_xcvr_channel.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/xilinx_xcvr_channel.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/xilinx_xcvr_channel.d" -MT"src/xilinx_xcvr_channel.o" -o "src/xilinx_xcvr_channel.o" "../src/xilinx_xcvr_channel.c"
+../src/xilinx_xcvr_channel.c: In function 'xilinx_xcvr_calc_cpll_config':
+../src/xilinx_xcvr_channel.c:103:52: warning: format '%u' expects argument of type 'unsigned int', but argument 3 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+  printf("%s: Failed to find matching dividers for %u kHz rate\n",
+                                                   ~^
+                                                   %lu
+'Finished building: ../src/xilinx_xcvr_channel.c'
+' '
+'Building target: DAQ2_HW_MOD.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../DAQ2_HW_MOD_bsp/ps7_cortexa9_0/lib -o "DAQ2_HW_MOD.elf"  ./src/ad9144.o ./src/ad9523.o ./src/ad9680.o ./src/adc_core.o ./src/dac_buffer.o ./src/dac_core.o ./src/dmac_core.o ./src/fmcdaq2.o ./src/jesd_core.o ./src/platform.o ./src/platform_drivers.o ./src/xcvr_core.o ./src/xilinx_qpll.o ./src/xilinx_xcvr_channel.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: DAQ2_HW_MOD.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size DAQ2_HW_MOD.elf  |tee "DAQ2_HW_MOD.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 124140	   2656	  23392	 150188	  24aac	DAQ2_HW_MOD.elf
+'Finished building: DAQ2_HW_MOD.elf.size'
+' '
+
+16:33:02 Build Finished (took 4s.425ms)
+

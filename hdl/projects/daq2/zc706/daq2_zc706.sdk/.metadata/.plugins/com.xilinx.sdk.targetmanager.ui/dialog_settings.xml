@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="" key="DAQ2_HW-bmmFile"/>
+	<item value="Local" key="DAQ2_HW-target"/>
+	<item value="DAQ2_HW" key="programfpga.hwplatform"/>
+	<item value="Auto Detect" key="DAQ2_HW-device"/>
+	<item value="system_top.bit" key="DAQ2_HW-bitFile"/>
+	<item value="false" key="DAQ2_HW-partial_bit"/>
+</section>

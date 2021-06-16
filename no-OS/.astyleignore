@@ -1,0 +1,14 @@
+# Mykonos API files
+projects/ad9371/src/app/myk.c
+projects/ad9371/src/app/myk.h
+projects/ad9371/src/app/myk_ad9528init.c
+projects/ad9371/src/devices/ad9528/
+projects/ad9371/src/devices/mykonos/
+libraries/fatfs/
+network/application/MQTT_eclipse_paho/
+drivers/adc/ad9081/api
+drivers/rf-transceiver/navassa/common/
+drivers/rf-transceiver/navassa/devices/
+drivers/rf-transceiver/navassa/third_party/
+drivers/adc/ad9083/ad9083_api
+legacy/

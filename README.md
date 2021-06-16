@@ -17,6 +17,11 @@ Thesis Code Preparation
 
 
 ### TDC - front-end implementation
+#### Requirements:
+1. Vivado 2018.3 +
+2. SDK 2018.3 +
+4. FPGA - [ZC706 Evaluation kit board](https://www.xilinx.com/products/boards-and-kits/ek-z7-zc706-g.html)
+5. Debug board - [HW-XM105-G Debug board](https://www.xilinx.com/products/boards-and-kits/hw-fmc-xm105-g.html)
 
 
 

@@ -9,7 +9,7 @@ Thesis Code Preparation
 3. Python environment
 4. FPGA - [ZC706 Evaluation kit board](https://www.xilinx.com/products/boards-and-kits/ek-z7-zc706-g.html)
 5. DAQ Board - [AD-FMCDAQ2-EBZ Evaluation board](https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/eval-ad-fmcdaq2-ebz.html#eb-overview)
-6. no-OS and hdl folder on the same location or as is the github
+6. no-OS and hdl folder on the same location or as is in this repository.
 
 ### Running the project
 

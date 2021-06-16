@@ -1,0 +1,15 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd" \
+"../../../../TDC_vhdl.srcs/sources_1/new/Thermo2Bin_pipeline.vhd" \
+"../../../../TDC_vhdl.srcs/sources_1/new/coarse_cnt.vhd" \
+"../../../../TDC_vhdl.srcs/sources_1/new/error.vhd" \
+"../../../../TDC_vhdl.srcs/sources_1/new/merge.vhd" \
+"../../../../TDC_vhdl.srcs/sources_1/new/synchronizer.vhd" \
+"../../../../TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd" \
+"../../../../TDC_vhdl.srcs/sources_1/new/tdc.vhd" \
+"../../../../TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd" \
+"../../../../TDC_vhdl.srcs/sim_1/new/TDC_SIM_TB.vhd" \
+
+# Do not sort compile order
+nosort

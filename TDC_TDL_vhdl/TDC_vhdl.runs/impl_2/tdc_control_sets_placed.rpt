@@ -1,0 +1,86 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Thu May 27 12:21:47 2021
+| Host         : DESKTOP-4JJ62M2 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file tdc_control_sets_placed.rpt
+| Design       : tdc
+| Device       : xc7z045
+------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    18 |
+| Unused register locations in slices containing registers |    90 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      1 |            7 |
+|      5 |            1 |
+|      6 |            3 |
+|     10 |            1 |
+|    16+ |            6 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             172 |           45 |
+| No           | No                    | Yes                    |             291 |           66 |
+| No           | Yes                   | No                     |               3 |            3 |
+| Yes          | No                    | No                     |             109 |           21 |
+| Yes          | No                    | Yes                    |              33 |           10 |
+| Yes          | Yes                   | No                     |              22 |            7 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+------------------+----------------+
+|                 Clock Signal                 |                     Enable Signal                     |                    Set/Reset Signal                   | Slice Load Count | Bel Load Count |
++----------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+------------------+----------------+
+|  rising_edge_start/Q                         |                                                       | rising_edge_tdc_rst/Q                                 |                1 |              1 |
+|  synchronizer_inst/DELAY_LINE_Full           |                                                       |                                                       |                1 |              1 |
+|  synchronizer_inst/StoreLastPiece_en_w       |                                                       | merge_inst/eom_o                                      |                1 |              1 |
+|  synchronizer_inst/s_ready_FirstPiece_therm0 |                                                       | merge_inst/eom_o                                      |                1 |              1 |
+|  start_i_IBUF_BUFG                           |                                                       | hit_r                                                 |                1 |              1 |
+|  C                                           |                                                       | rising_edge_tdc_rst/Type2.Q_i_2_n_0                   |                1 |              1 |
+|  clk_i_IBUF_BUFG                             |                                                       | merge_inst/s_eom_r_i_1_n_0                            |                1 |              1 |
+|  clk_i_IBUF_BUFG                             | synchronizer_inst/FSM_onehot_state[4]_i_1_n_0         |                                                       |                1 |              5 |
+|  clk_i_IBUF_BUFG                             | t2b_decoder_inst/COUNT_NUMBER_OF_ONES/bin[7]_i_2_n_0  | t2b_decoder_inst/COUNT_NUMBER_OF_ONES/bin[7]_i_1_n_0  |                2 |              6 |
+|  clk_i_IBUF_BUFG                             | t2b_decoder_inst/COUNT_NUMBER_OF_ZEROS/bin[7]_i_2_n_0 | t2b_decoder_inst/COUNT_NUMBER_OF_ZEROS/bin[7]_i_1_n_0 |                2 |              6 |
+|  clk_i_IBUF_BUFG                             | merge_inst/s_en_merge_r                               | merge_inst/s_eom_r_i_1_n_0                            |                1 |              6 |
+|  clk_i_IBUF_BUFG                             | synchronizer_inst/cnt_en_i                            | nrst_i1_out                                           |                3 |             10 |
+|  clk_i_IBUF_BUFG                             | merge_inst/s_tdc_measure_ps_r[20]_i_1_n_0             |                                                       |                7 |             20 |
+|  clk_i_IBUF_BUFG                             | merge_inst/coarse_cnt_r0                              | merge_inst/s_eom_r_i_1_n_0                            |                9 |             27 |
+|  clk_i_IBUF_BUFG                             | synchronizer_inst/StoreLastPiece_en_w                 |                                                       |                7 |             42 |
+|  clk_i_IBUF_BUFG                             | synchronizer_inst/store_FirstPiece_i                  |                                                       |                6 |             42 |
+|  clk_i_IBUF_BUFG                             |                                                       |                                                       |               44 |            171 |
+|  clk_i_IBUF_BUFG                             |                                                       | nrst_i1_out                                           |               63 |            288 |
++----------------------------------------------+-------------------------------------------------------+-------------------------------------------------------+------------------+----------------+
+
+

@@ -1,0 +1,235 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: Alexandre Brandao
+-- 
+-- Create Date: 02/27/2021 06:16:10 PM
+-- Design Name: 
+-- Module Name: merge - Behavioral
+-- Project Name: 
+-- Target Devices: Zynq 7 series ZC706
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Revision 0.02 - Fixed an issue where the signal eom_r would not update properly.
+-- Additional Comments:
+-- 
+-- Extensions in names
+-- r - register    | i - input
+-- w - wire        | o - output
+-- s - signal      | int - integer
+-- fe- falling edge| re  - rising edge
+----------------------------------------------------------------------------------
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+library UNISIM;
+use UNISIM.VComponents.all;
+
+entity merge is
+    generic(FINE_BUS_WIDTH: integer := 8;
+            SIMULATION    : boolean := false;
+            TAP_DELAY_PS  : integer := 31);
+            
+     Port ( clk_i            : in  STD_LOGIC;
+            valid_start      : in  STD_LOGIC;
+            valid_stop       : in  STD_LOGIC;
+            valid_counter    : in  STD_LOGIC;
+            nrst_i           : in  STD_LOGIC;
+            coarse_cnt_i     : in  STD_LOGIC_VECTOR(9 downto 0);
+            fine_start_i     : in  STD_LOGIC_VECTOR(FINE_BUS_WIDTH-1 downto 0);
+            fine_stop_i      : in  STD_LOGIC_VECTOR(FINE_BUS_WIDTH-1 downto 0);        
+            tdc_measure_o    : out STD_LOGIC_VECTOR(20 downto 0);
+            fine_start_cal_o : out STD_LOGIC_VECTOR(FINE_BUS_WIDTH-1 downto 0);
+            fine_stop_cal_o  : out STD_LOGIC_VECTOR(FINE_BUS_WIDTH-1 downto 0);
+            cal_cnt_o        : out STD_LOGIC_VECTOR(9 DOWNTO 0);
+            eom_o            : out STD_LOGIC
+          );
+end merge;
+
+architecture Behavioral of merge is
+
+ATTRIBUTE keep_hierarchy 	: string;                             -- Keep Hierarchy to specify FPGA optimization
+ATTRIBUTE keep_hierarchy OF Behavioral	: ARCHITECTURE IS "true"; -- Reject FPGA optimization
+
+COMPONENT FlipFlop IS
+          generic(CLR_ACTIVE_HIGH : boolean := true;
+                  POS_EDGE        : boolean := true);
+          Port ( C   : in  STD_LOGIC;
+                 Q   : out STD_LOGIC;
+                 D   : in  STD_LOGIC;
+                 EN  : in  STD_LOGIC;
+                 CLR : in  STD_LOGIC);
+END COMPONENT FlipFlop;
+
+--------------------------------------
+
+constant bus_width_measure : integer := 21;
+constant eom_r_bus_width   : integer := 6;
+constant tap_delay         : integer := TAP_DELAY_PS;
+
+signal s_tdc_measure_ps_w  : std_logic_vector(bus_width_measure-1 downto 0) := (others => '0');
+signal s_tdc_measure_ps_r  : std_logic_vector(bus_width_measure-1 downto 0) := (others => '0');
+
+signal s_en_merge_r        : std_logic := '0';
+signal s_merge_reset       : std_logic := '0';
+signal s_eom_r             : std_logic := '0';
+signal s_delay             : std_logic_vector(eom_r_bus_width-1 downto 0) := (others => '0');
+
+signal eom_nrst_w: std_logic;
+
+--STORE COARSE AND FINE MEASUREMENTS TO CORRECT TIMING VIOLATIONS
+signal coarse_cnt_r, coarse_cnt_r0 : std_logic_vector(9 downto 0) := (others => '0');
+signal fine_start_r, fine_stop_r, cal_r : std_logic_vector(FINE_BUS_WIDTH-1 downto 0) := (others => '0');
+
+-- Pipeline registers
+    -- Stage 1
+signal Stage1Cnt_r0        : unsigned(9 downto 0)                   := (others => '0');
+signal Stage1Pipe_Sum      : signed(FINE_BUS_WIDTH -1 downto 0)     := (others => '0');
+signal Stage1Pipe_Shift11  : unsigned(bus_width_measure-1 downto 0) := (others => '0');
+
+    -- Stage 2
+signal Stage2Pipe_Mul      : signed(FINE_BUS_WIDTH+4-1 downto 0)    := (others => '0');
+signal Stage2Pipe          : unsigned(10-1 downto 0)                := (others => '0');
+signal Stage2Pipe_reg2     : unsigned(bus_width_measure-1 downto 0) := (others => '0');
+
+    -- Stage 3 
+signal Stage3Pipe_Mul      : unsigned(10+4-1 downto 0)              := (others => '0');
+signal Stage3Pipe          : unsigned(FINE_BUS_WIDTH+4-1 downto 0)  := (others => '0');
+signal Stage3Pipe_reg2     : unsigned(bus_width_measure-1 downto 0) := (others => '0');
+
+    -- Stage 4
+signal Stage4PipeSum  : std_logic_vector(bus_width_measure-1 downto 0) := (others => '0');
+signal Stage4Pipe     : std_logic_vector(bus_width_measure-1 downto 0) := (others => '0');
+
+    -- Stage 5
+signal Stage5Pipe  : std_logic_vector(bus_width_measure-1 downto 0) := (others => '0');
+
+attribute USE_DSP48 : string;
+attribute USE_DSP48 of Behavioral : architecture is "NO";
+
+begin
+
+-- END OF MEASUREMENT RESET CONDITIONS
+
+process(clk_i)
+begin
+    if rising_edge(clk_i) then
+        eom_nrst_w <= nrst_i and not s_eom_r;
+    end if;
+end process;
+
+process(clk_i, eom_nrst_w)
+begin 
+    if eom_nrst_w = '0' then
+            coarse_cnt_r <= (others => '0');
+            fine_start_r <= (others => '0');
+            fine_stop_r  <= (others => '0');
+            s_en_merge_r <= '0';
+    elsif(rising_edge(clk_i)) then
+            if(valid_start = '1' and valid_stop = '1' and valid_counter = '1') then
+                coarse_cnt_r  <= coarse_cnt_i;
+                fine_start_r <= fine_start_i;
+                fine_stop_r  <= fine_stop_i;
+                s_en_merge_r <= '1';
+            end if;
+    end if;
+end process;
+
+-------------------------------
+
+-- PIPELINE AND SET EOM SIGNAL
+PIPELING_ARITHMETIC_OPERATIONS: 
+process(clk_i, eom_nrst_w)
+begin
+    if  eom_nrst_w = '0' then
+        Stage1Pipe_Sum      <= (others => '0');
+        Stage1Pipe_Shift11  <= (others => '0');
+        Stage1Cnt_r0        <= (others => '0');
+        
+        Stage2Pipe_Mul      <= (others => '0');
+        Stage2Pipe          <= (others => '0');
+        Stage2Pipe_reg2     <= (others => '0');
+        
+        Stage3Pipe_reg2     <= (others => '0');
+        Stage3Pipe          <= (others => '0');
+        Stage3Pipe_Mul      <= (others => '0');
+        
+        Stage4PipeSum       <= (others => '0');
+        Stage4Pipe          <= (others => '0');
+        
+        s_eom_r <= '0';
+    elsif rising_edge(clk_i) then
+    
+        -- Stage 1 Piping
+        Stage1Pipe_Sum     <= signed(unsigned(fine_start_r) - unsigned(fine_stop_r));
+        Stage1Pipe_Shift11 <= unsigned(coarse_cnt_r) & X"00" & "000";   
+        Stage1Cnt_r0       <= unsigned(coarse_cnt_r);
+        
+        -- Stage 2 Piping
+        Stage2Pipe_Mul  <= signed(to_unsigned(to_integer(Stage1Pipe_Sum) * tap_delay , FINE_BUS_WIDTH+4));
+        Stage2Pipe      <= unsigned(Stage1Cnt_r0 );
+        Stage2Pipe_reg2 <= Stage1Pipe_Shift11;
+        
+        -- Stage 3 Piping
+        if s_delay(2) = '1' then
+            Stage3Pipe      <= unsigned(Stage2Pipe_Mul);
+            Stage3Pipe_Mul  <= to_unsigned(to_integer(Stage2Pipe) * 46 , 10+4);
+            Stage3Pipe_reg2 <= Stage2Pipe_reg2;
+            
+            if s_delay (4) = '1' then
+                -- Stage 4 Piping
+                Stage4PipeSum <= std_logic_vector(to_unsigned(to_integer(signed(Stage3Pipe))- to_integer(Stage3Pipe_Mul) , bus_width_measure));
+                Stage4Pipe    <= std_logic_vector(Stage3Pipe_reg2);
+                
+                 -- Stage 5 Piping
+                Stage5Pipe    <= std_logic_vector(to_unsigned(to_integer(signed(Stage4PipeSum))+ to_integer(unsigned(Stage4Pipe)), bus_width_measure));
+                if s_delay (5) = '1' then
+                     s_eom_r <= '1';    -- SET END OF MEASURE TO '1'  
+                else
+                     s_eom_r <= '0';    -- SET END OF MEASURE TO '0'  
+                end if;
+            else
+                s_eom_r <= '0';
+            end if;
+        else
+            s_eom_r <= '0';
+        end if;
+        
+    end if;
+end process;
+
+
+-- 2ns per count(2000ps@500Mhz)
+-- 31ps per carry8
+-- i suspect (maybe of about 50ps per Carry4 ZC706)
+-- Note: 
+--);
+
+
+process(clk_i, eom_nrst_w, s_en_merge_r)
+begin
+  if(eom_nrst_w = '0') then 
+       s_delay  <= (others => '0');
+           
+    elsif rising_edge(clk_i)  then
+        if s_en_merge_r = '1' then 
+            s_delay (eom_r_bus_width-1 downto 0) <= s_delay (eom_r_bus_width-2 downto 0) & '1';
+        end if;
+    end if;
+end process;
+
+--------------------------------- OUTPUT SIGNALS ---------------------------------
+tdc_measure_o    <= Stage5Pipe;
+fine_start_cal_o <= fine_start_r;
+fine_stop_cal_o  <= fine_stop_r;
+cal_cnt_o        <= (others => '0');
+eom_o            <= s_eom_r;
+
+end Behavioral;

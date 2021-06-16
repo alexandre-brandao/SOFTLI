@@ -1,0 +1,2437 @@
+
+*** Running vivado
+    with args -log tdc.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source tdc.tcl
+
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source tdc.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/MEMORY_Buffer/MEMORY_Buffer.srcs/sources_1/new'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/adi/hdl/projects/daq2/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+Command: synth_design -top tdc -part xc7z045ffg900-2 -fanout_limit 400 -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z045'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z045'
+INFO: [Common 17-1540] The version limit for your license is '2021.01' and has expired for new software. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 11964 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 395.062 ; gain = 102.770
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'tdc' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:50]
+	Parameter START_LOCATION_OF_SLICE_X bound to: 6 - type: integer 
+	Parameter START_LOCATION_OF_SLICE_Y bound to: 40 - type: integer 
+	Parameter NUM_STAGES bound to: 260 - type: integer 
+	Parameter RUN_SIMULATION bound to: 0 - type: bool 
+	Parameter SIMULATED_TAP_DELAY_PS bound to: 34 - type: integer 
+INFO: [Synth 8-3491] module 'coarse_cnt' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/coarse_cnt.vhd:27' bound to instance 'coarse_cnt_inst' of component 'coarse_cnt' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:242]
+INFO: [Synth 8-638] synthesizing module 'coarse_cnt' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/coarse_cnt.vhd:35]
+INFO: [Synth 8-256] done synthesizing module 'coarse_cnt' (1#1) [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/coarse_cnt.vhd:35]
+INFO: [Synth 8-3491] module 'error' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/error.vhd:25' bound to instance 'error_inst' of component 'error' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:251]
+INFO: [Synth 8-638] synthesizing module 'error' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/error.vhd:31]
+INFO: [Synth 8-256] done synthesizing module 'error' (2#1) [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/error.vhd:31]
+	Parameter SIM_MODE bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'synchronizer' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/synchronizer.vhd:28' bound to instance 'synchronizer_inst' of component 'synchronizer' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:258]
+INFO: [Synth 8-638] synthesizing module 'synchronizer' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/synchronizer.vhd:37]
+	Parameter SIM_MODE bound to: 0 - type: bool 
+WARNING: [Synth 8-614] signal 's_coarse_cnt_enable' is read in the process but is not in the sensitivity list [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/synchronizer.vhd:110]
+	Parameter CLR_ACTIVE_HIGH bound to: 1 - type: bool 
+	Parameter POS_EDGE bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'FlipFlop' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:25' bound to instance 'falling_edge_start_en_r' of component 'FlipFlop' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/synchronizer.vhd:156]
+INFO: [Synth 8-638] synthesizing module 'FlipFlop' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:35]
+	Parameter CLR_ACTIVE_HIGH bound to: 1 - type: bool 
+	Parameter POS_EDGE bound to: 0 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'FlipFlop' (3#1) [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:35]
+	Parameter CLR_ACTIVE_HIGH bound to: 1 - type: bool 
+	Parameter POS_EDGE bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'FlipFlop' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:25' bound to instance 'falling_edge_stop_en_w' of component 'FlipFlop' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/synchronizer.vhd:166]
+	Parameter CLR_ACTIVE_HIGH bound to: 0 - type: bool 
+	Parameter POS_EDGE bound to: 1 - type: bool 
+INFO: [Synth 8-3491] module 'FlipFlop' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:25' bound to instance 'rising_edge_eom_i' of component 'FlipFlop' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/synchronizer.vhd:176]
+INFO: [Synth 8-638] synthesizing module 'FlipFlop__parameterized2' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:35]
+	Parameter CLR_ACTIVE_HIGH bound to: 0 - type: bool 
+	Parameter POS_EDGE bound to: 1 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'FlipFlop__parameterized2' (3#1) [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:35]
+INFO: [Synth 8-256] done synthesizing module 'synchronizer' (4#1) [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/synchronizer.vhd:37]
+WARNING: [Synth 8-614] signal 's_ready_start_therm' is read in the process but is not in the sensitivity list [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:269]
+WARNING: [Synth 8-614] signal 's_ready_stop_therm' is read in the process but is not in the sensitivity list [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:280]
+WARNING: [Synth 8-614] signal 's_ready_counter' is read in the process but is not in the sensitivity list [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:291]
+	Parameter NUM_STAGES bound to: 260 - type: integer 
+	Parameter OUTPUT_BUS_WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 't2b_decoder' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:28' bound to instance 't2b_decoder_inst' of component 't2b_decoder' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:303]
+INFO: [Synth 8-638] synthesizing module 't2b_decoder' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:46]
+	Parameter NUM_STAGES bound to: 260 - type: integer 
+	Parameter OUTPUT_BUS_WIDTH bound to: 8 - type: integer 
+	Parameter b bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'Thermo2Bin_pipeline' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Thermo2Bin_pipeline.vhd:29' bound to instance 'COUNT_NUMBER_OF_ONES' of component 'Thermo2Bin_pipeline' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+INFO: [Synth 8-638] synthesizing module 'Thermo2Bin_pipeline' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Thermo2Bin_pipeline.vhd:42]
+	Parameter b bound to: 8 - type: integer 
+WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'generate_stages[0].data_valid_reg' in module 'Thermo2Bin_pipeline' in the same process may cause logic issues. 
+ Please split the sync and async parts into different processes [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Thermo2Bin_pipeline.vhd:88]
+WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'generate_stages[1].data_valid_reg' in module 'Thermo2Bin_pipeline' in the same process may cause logic issues. 
+ Please split the sync and async parts into different processes [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Thermo2Bin_pipeline.vhd:97]
+WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'generate_stages[2].data_valid_reg' in module 'Thermo2Bin_pipeline' in the same process may cause logic issues. 
+ Please split the sync and async parts into different processes [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Thermo2Bin_pipeline.vhd:97]
+WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'generate_stages[3].data_valid_reg' in module 'Thermo2Bin_pipeline' in the same process may cause logic issues. 
+ Please split the sync and async parts into different processes [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Thermo2Bin_pipeline.vhd:97]
+WARNING: [Synth 8-6426] Mix of Sync and Async assignments to register 'data_valid_reg' in module 'Thermo2Bin_pipeline' in the same process may cause logic issues. 
+ Please split the sync and async parts into different processes [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Thermo2Bin_pipeline.vhd:117]
+WARNING: [Synth 8-3848] Net binary[0] in module/entity Thermo2Bin_pipeline does not have driver. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Thermo2Bin_pipeline.vhd:66]
+INFO: [Synth 8-256] done synthesizing module 'Thermo2Bin_pipeline' (5#1) [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Thermo2Bin_pipeline.vhd:42]
+	Parameter b bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'Thermo2Bin_pipeline' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Thermo2Bin_pipeline.vhd:29' bound to instance 'COUNT_NUMBER_OF_ZEROS' of component 'Thermo2Bin_pipeline' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:130]
+INFO: [Synth 8-256] done synthesizing module 't2b_decoder' (6#1) [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:46]
+	Parameter NUM_STAGES bound to: 260 - type: integer 
+	Parameter Xoff bound to: 6 - type: integer 
+	Parameter Yoff bound to: 40 - type: integer 
+	Parameter SIM_MODE bound to: 0 - type: bool 
+	Parameter TAP_DELAY bound to: 34 - type: integer 
+INFO: [Synth 8-3491] module 'tdl' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:31' bound to instance 'tdl_inst' of component 'tdl' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:319]
+INFO: [Synth 8-638] synthesizing module 'tdl' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:50]
+	Parameter NUM_STAGES bound to: 260 - type: integer 
+	Parameter Xoff bound to: 6 - type: integer 
+	Parameter Yoff bound to: 40 - type: integer 
+	Parameter SIM_MODE bound to: 0 - type: bool 
+	Parameter TAP_DELAY bound to: 34 - type: integer 
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:91]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+INFO: [Synth 8-113] binding component instance 'delayblock' to cell 'CARRY4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:107]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-113] binding component instance 'TDC_VAL_REG' to cell 'FDCE' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:137]
+INFO: [Common 17-14] Message 'Synth 8-113' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_CLR_INVERTED bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+INFO: [Synth 8-256] done synthesizing module 'tdl' (7#1) [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdl_inst.vhd:50]
+	Parameter FINE_BUS_WIDTH bound to: 8 - type: integer 
+	Parameter SIMULATION bound to: 0 - type: bool 
+	Parameter TAP_DELAY_PS bound to: 34 - type: integer 
+INFO: [Synth 8-3491] module 'merge' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/merge.vhd:34' bound to instance 'merge_inst' of component 'merge' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:331]
+INFO: [Synth 8-638] synthesizing module 'merge' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/merge.vhd:55]
+	Parameter FINE_BUS_WIDTH bound to: 8 - type: integer 
+	Parameter SIMULATION bound to: 0 - type: bool 
+	Parameter TAP_DELAY_PS bound to: 34 - type: integer 
+	Parameter CLR_ACTIVE_HIGH bound to: 0 - type: bool 
+	Parameter POS_EDGE bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'FlipFlop' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:25' bound to instance 'falling_edge_eom_nrst' of component 'FlipFlop' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/merge.vhd:222]
+INFO: [Synth 8-638] synthesizing module 'FlipFlop__parameterized4' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:35]
+	Parameter CLR_ACTIVE_HIGH bound to: 0 - type: bool 
+	Parameter POS_EDGE bound to: 0 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'FlipFlop__parameterized4' (7#1) [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:35]
+	Parameter CLR_ACTIVE_HIGH bound to: 0 - type: bool 
+	Parameter POS_EDGE bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'FlipFlop' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:25' bound to instance 'falling_edge_nrst' of component 'FlipFlop' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/merge.vhd:242]
+INFO: [Synth 8-256] done synthesizing module 'merge' (8#1) [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/merge.vhd:55]
+	Parameter CLR_ACTIVE_HIGH bound to: 1 - type: bool 
+	Parameter POS_EDGE bound to: 1 - type: bool 
+INFO: [Synth 8-3491] module 'FlipFlop' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:25' bound to instance 'rising_edge_start' of component 'FlipFlop' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:354]
+INFO: [Synth 8-638] synthesizing module 'FlipFlop__parameterized6' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:35]
+	Parameter CLR_ACTIVE_HIGH bound to: 1 - type: bool 
+	Parameter POS_EDGE bound to: 1 - type: bool 
+INFO: [Synth 8-256] done synthesizing module 'FlipFlop__parameterized6' (8#1) [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:35]
+	Parameter CLR_ACTIVE_HIGH bound to: 0 - type: bool 
+	Parameter POS_EDGE bound to: 1 - type: bool 
+INFO: [Synth 8-3491] module 'FlipFlop' declared at 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/Rising_Edge_Register.vhd:25' bound to instance 'rising_edge_tdc_rst' of component 'FlipFlop' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:365]
+INFO: [Synth 8-256] done synthesizing module 'tdc' (9#1) [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:50]
+WARNING: [Synth 8-3331] design Thermo2Bin_pipeline has unconnected port thermo[255]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 453.492 ; gain = 161.199
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[254] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[253] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[252] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[251] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[250] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[249] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[248] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[247] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[246] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[245] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[244] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[243] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[242] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[241] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[240] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[239] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[238] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[237] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[236] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[235] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[234] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[233] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[232] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[231] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[230] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[229] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[228] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[227] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[226] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[225] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[224] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[223] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[222] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[221] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[220] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[219] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[218] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[217] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[216] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[215] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[214] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[213] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[212] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[211] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[210] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[209] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[208] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[207] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[206] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[205] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[204] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[203] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[202] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[201] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[200] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[199] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[198] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[197] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[196] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[195] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[194] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[193] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[192] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[191] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[190] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[189] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[188] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[187] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[186] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[185] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[184] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[183] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[182] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[181] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[180] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[179] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[178] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[177] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[176] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[175] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[174] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[173] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[172] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[171] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[170] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[169] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[168] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[167] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[166] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[165] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[164] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[163] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[162] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[161] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[160] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[159] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[158] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[157] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[156] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+WARNING: [Synth 8-3295] tying undriven pin COUNT_NUMBER_OF_ONES:thermo[155] to constant 0 [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/t2b_decoder.vhd:116]
+INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 453.492 ; gain = 161.199
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 453.492 ; gain = 161.199
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 65 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Device 21-403] Loading part xc7z045ffg900-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage2Pipe_Multiplication2_reg/CLK'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[19]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[0]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[1]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[2]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[3]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[4]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[5]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[6]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[7]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[8]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[9]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[10]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[11]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[12]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[13]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[14]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[15]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[16]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[17]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[18]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[19]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[20]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[21]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[22]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[23]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[24]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[25]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[26]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[27]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[28]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[29]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[30]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[31]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[32]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[33]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[34]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[35]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[36]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[37]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[38]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[39]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[40]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[41]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[42]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[43]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[44]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[45]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[46]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched 'merge_inst/Stage3Pipe_Sum_reg/C[47]'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:3]
+WARNING: [Vivado 12-508] No pins matched '*tdc_thermometer_start_val_reg/C'. [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc:5]
+Finished Parsing XDC File [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/constrs_1/new/ZC706_constraint.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/tdc_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/tdc_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 892.957 ; gain = 0.000
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 892.957 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 892.957 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 892.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 892.957 ; gain = 600.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z045ffg900-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 892.957 ; gain = 600.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 892.957 ; gain = 600.664
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5544] ROM "max_cnt_w" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-327] inferring latch for variable 'NON_SIM.s_coarse_cnt_enable_reg' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/synchronizer.vhd:65]
+WARNING: [Synth 8-327] inferring latch for variable 's_ready_counter_reg' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:294]
+WARNING: [Synth 8-327] inferring latch for variable 's_ready_start_therm_reg' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:272]
+WARNING: [Synth 8-327] inferring latch for variable 's_ready_stop_therm_reg' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:283]
+WARNING: [Synth 8-327] inferring latch for variable 'NON_SIM.hit_r_reg' [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/tdc.vhd:232]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 892.957 ; gain = 600.664
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     21 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
+	   3 Input      8 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 2     
+	  13 Input      4 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 2     
+	   2 Input      2 Bit       Adders := 2     
++---Registers : 
+	              255 Bit    Registers := 8     
+	               21 Bit    Registers := 2     
+	               12 Bit    Registers := 1     
+	               10 Bit    Registers := 3     
+	                9 Bit    Registers := 8     
+	                8 Bit    Registers := 8     
+	                1 Bit    Registers := 10    
++---Muxes : 
+	   2 Input    127 Bit        Muxes := 2     
+	   2 Input     63 Bit        Muxes := 2     
+	   2 Input     31 Bit        Muxes := 2     
+	   2 Input     15 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module coarse_cnt 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 1     
+Module error 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module FlipFlop 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module FlipFlop__parameterized2 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module synchronizer 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+Module Thermo2Bin_pipeline 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
+	  13 Input      4 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	              255 Bit    Registers := 4     
+	                9 Bit    Registers := 4     
+	                8 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input    127 Bit        Muxes := 1     
+	   2 Input     63 Bit        Muxes := 1     
+	   2 Input     31 Bit        Muxes := 1     
+	   2 Input     15 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+Module t2b_decoder 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
+Module FlipFlop__parameterized4 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module merge 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     21 Bit       Adders := 1     
+	   3 Input      8 Bit       Adders := 1     
++---Registers : 
+	               21 Bit    Registers := 2     
+	               12 Bit    Registers := 1     
+	               10 Bit    Registers := 2     
+	                8 Bit    Registers := 4     
+	                1 Bit    Registers := 1     
+Module FlipFlop__parameterized6 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 900 (col length:140)
+BRAMs: 1090 (col length: RAMB18 140 RAMB36 70)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+DSP Report: Generating DSP Stage2Pipe_Multiplication10, operation Mode is: (A:0x7d0)*B.
+DSP Report: operator Stage2Pipe_Multiplication10 is absorbed into DSP Stage2Pipe_Multiplication10.
+WARNING: [Synth 8-3331] design Thermo2Bin_pipeline has unconnected port thermo[255]
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (Thermo2Bin_pipeline:/\generate_stages[3].decoding_reg[4][15] )
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[1].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[2].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[4].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[5].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[6].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[8].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[9].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[10].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[12].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[13].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[14].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[16].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[17].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[18].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[20].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[21].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[22].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[24].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[25].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[26].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[28].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[29].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[30].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[32].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[33].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[34].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[36].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[37].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[38].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[40].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[41].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[42].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[44].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[45].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[46].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[48].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[49].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[50].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[52].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[53].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[54].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[56].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[57].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[58].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[60].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[61].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[62].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[64].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[65].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[66].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[68].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[69].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[70].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[72].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[73].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[74].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[76].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[77].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[78].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[80].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[81].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[82].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[84].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[85].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[86].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[88].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[89].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[90].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[92].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[93].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[94].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[96].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[97].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[98].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[100].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[101].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[102].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[104].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[105].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[106].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[108].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[109].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[110].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[112].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[113].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[114].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[116].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[117].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[118].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[120].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[121].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[122].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[124].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[125].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[126].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[128].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[129].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[130].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[132].TDC_VAL_REG) is unused and will be removed from module tdl.
+WARNING: [Synth 8-3332] Sequential element (Latching_Entry_Stage[133].TDC_VAL_REG) is unused and will be removed from module tdl.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (merge_inst/\Stage2Pipe_Multiplication2_reg[0] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 892.957 ; gain = 600.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping  Report (see note below)
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|merge       | (A:0x7d0)*B | 10     | 11     | -      | -      | 21     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/merge.vhd:131]
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 914.484 ; gain = 622.191
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 916.035 ; gain = 623.742
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/merge.vhd:144]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [C:/VivadoProjects/TDC_vhdl/TDC_vhdl.srcs/sources_1/new/merge.vhd:131]
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 927.398 ; gain = 635.105
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5777] Ignored max_fanout on net reset because some of its loads are not in same hierarchy as its driver   
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 927.398 ; gain = 635.105
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 927.398 ; gain = 635.105
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 927.398 ; gain = 635.105
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 927.398 ; gain = 635.105
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 927.398 ; gain = 635.105
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 927.398 ; gain = 635.105
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |BUFG    |     3|
+|2     |CARRY4  |    74|
+|3     |DSP48E1 |     1|
+|4     |LUT1    |    12|
+|5     |LUT2    |    33|
+|6     |LUT3    |   517|
+|7     |LUT4    |     8|
+|8     |LUT5    |     8|
+|9     |LUT6    |    21|
+|10    |FDCE    |   807|
+|11    |FDRE    |    28|
+|12    |LD      |     1|
+|13    |LDC     |     4|
+|14    |IBUF    |     5|
+|15    |OBUF    |    48|
++------+--------+------+
+
+Report Instance Areas: 
++------+----------------------------+----------------------------+------+
+|      |Instance                    |Module                      |Cells |
++------+----------------------------+----------------------------+------+
+|1     |top                         |                            |  1570|
+|2     |  coarse_cnt_inst           |coarse_cnt                  |    22|
+|3     |  error_inst                |error                       |     1|
+|4     |  synchronizer_inst         |synchronizer                |    10|
+|5     |    falling_edge_start_en_r |FlipFlop__1                 |     1|
+|6     |    falling_edge_stop_en_w  |FlipFlop                    |     1|
+|7     |    rising_edge_eom_i       |FlipFlop__parameterized2__1 |     2|
+|8     |  t2b_decoder_inst          |t2b_decoder                 |  1055|
+|9     |    COUNT_NUMBER_OF_ONES    |Thermo2Bin_pipeline__1      |   523|
+|10    |    COUNT_NUMBER_OF_ZEROS   |Thermo2Bin_pipeline         |   523|
+|11    |  tdl_inst                  |tdl                         |   261|
+|12    |  merge_inst                |merge                       |   152|
+|13    |    falling_edge_eom_nrst   |FlipFlop__parameterized4__1 |     2|
+|14    |    falling_edge_nrst       |FlipFlop__parameterized4    |     2|
+|15    |  rising_edge_start         |FlipFlop__parameterized6    |     2|
+|16    |  rising_edge_tdc_rst       |FlipFlop__parameterized2    |     2|
++------+----------------------------+----------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 927.398 ; gain = 635.105
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 200 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 927.398 ; gain = 195.641
+Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 927.398 ; gain = 635.105
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 80 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 927.398 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 5 instances were transformed.
+  LD => LDCE: 1 instances
+  LDC => LDCE: 4 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+168 Infos, 268 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 927.398 ; gain = 648.121
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 927.398 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/VivadoProjects/TDC_vhdl/TDC_vhdl.runs/synth_1/tdc.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file tdc_utilization_synth.rpt -pb tdc_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 30 22:29:01 2021...

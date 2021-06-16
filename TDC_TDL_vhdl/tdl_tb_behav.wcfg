@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tdl_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="tdl_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="18770492fs"></ZoomEndTime>
+      <Cursor1Time time="4000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="245"></NameColumnWidth>
+      <ValueColumnWidth column_width="120"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/tdl_tb/s_hit_i" type="logic">
+      <obj_property name="ElementShortName">s_hit_i</obj_property>
+      <obj_property name="ObjectShortName">s_hit_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tdl_tb/s_rst_i" type="logic">
+      <obj_property name="ElementShortName">s_rst_i</obj_property>
+      <obj_property name="ObjectShortName">s_rst_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tdl_tb/s_store_start_i" type="logic">
+      <obj_property name="ElementShortName">s_store_start_i</obj_property>
+      <obj_property name="ObjectShortName">s_store_start_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tdl_tb/s_store_stop_i" type="logic">
+      <obj_property name="ElementShortName">s_store_stop_i</obj_property>
+      <obj_property name="ObjectShortName">s_store_stop_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tdl_tb/s_thermometer_sample_stage_o" type="array">
+      <obj_property name="ElementShortName">s_thermometer_sample_stage_o[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s_thermometer_sample_stage_o[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tdl_tb/s_thermometer_start_val_o" type="array">
+      <obj_property name="ElementShortName">s_thermometer_start_val_o[139:0]</obj_property>
+      <obj_property name="ObjectShortName">s_thermometer_start_val_o[139:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tdl_tb/s_thermometer_stop_val_o" type="array">
+      <obj_property name="ElementShortName">s_thermometer_stop_val_o[139:0]</obj_property>
+      <obj_property name="ObjectShortName">s_thermometer_stop_val_o[139:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tdl_tb/uut/tdl_val_r" type="array">
+      <obj_property name="ElementShortName">tdl_val_r[559:0]</obj_property>
+      <obj_property name="ObjectShortName">tdl_val_r[559:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tdl_tb/uut/tdl_val_w" type="array">
+      <obj_property name="ElementShortName">tdl_val_w[559:0]</obj_property>
+      <obj_property name="ObjectShortName">tdl_val_w[559:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tdl_tb/numstages" type="other">
+      <obj_property name="ElementShortName">numstages</obj_property>
+      <obj_property name="ObjectShortName">numstages</obj_property>
+   </wvobject>
+</wave_config>
